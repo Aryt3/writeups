@@ -19,17 +19,23 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Answer: 
 `2` Ports are open.
 
+<br/>
+
 Question:
 `What version of Apache is running?`
 
 Answer:
 `2.4.29` is the correct Version.
 
+<br/>
+
 Question:
 `What service is running on port 22?`
 
 Answer:
 `SSH` is the service which is also the default Port for SSH.
+
+<br/>
 
 Question:
 `What is the hidden directory?`
@@ -89,6 +95,8 @@ ________________________________________________
 
 Answer:
 `/panel/` seems to be the hidden directory.
+
+<br/>
 
 Question:
 What is the content of `user.txt`?
@@ -223,6 +231,8 @@ nc -lnvp 9999
 Answer:
 `THM{y0u_g0t_a_sh3ll}` seems to be the content for `user.txt`.
 
+<br/>
+
 Question:
 Find a file with weird SUID permission:
 
@@ -233,6 +243,8 @@ find / -user root -perm /4000
 
 Answer:
 `/usr/bin/python` seems to be fun to play with.
+
+<br/>
 
 The next Step is to escalate priviledges which is not so hard because we found an exploit for this on https://gtfobins.github.io/gtfobins/python/.
 ```sh
