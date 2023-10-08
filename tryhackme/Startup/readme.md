@@ -1,2 +1,178 @@
 # Startup
 
+Starting with basic active recon:
+```sh
+nmap -sV $ip             
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-10-08 13:58 CEST
+Nmap scan report for 10.10.76.230
+Host is up (0.069s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.18 seconds
+```
+
+And also direcotry scan:
+```sh
+ffuf -u http://$ip/FUZZ -w ./webhacking/wordlists/directory_scanner/common.txt  
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.0.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.10.76.230/FUZZ
+ :: Wordlist         : FUZZ: /home/kali/webhacking/wordlists/directory_scanner/common.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
+________________________________________________
+
+[Status: 403, Size: 277, Words: 20, Lines: 10, Duration: 70ms]
+    * FUZZ: .htpasswd
+
+[Status: 403, Size: 277, Words: 20, Lines: 10, Duration: 70ms]
+    * FUZZ: .hta
+
+[Status: 403, Size: 277, Words: 20, Lines: 10, Duration: 70ms]
+    * FUZZ: .htaccess
+
+[Status: 301, Size: 312, Words: 20, Lines: 10, Duration: 70ms]
+    * FUZZ: files
+
+[Status: 200, Size: 808, Words: 136, Lines: 21, Duration: 70ms]
+    * FUZZ: index.html
+
+[Status: 403, Size: 277, Words: 20, Lines: 10, Duration: 70ms]
+    * FUZZ: server-status
+
+:: Progress: [4613/4613] :: Job [1/1] :: 589 req/sec :: Duration: [0:00:10] :: Errors: 0 ::
+```
+
+Taking a look at the website:
+```sh
+curl -v $ip                                      
+*   Trying 10.10.76.230:80...
+* Connected to 10.10.76.230 (10.10.76.230) port 80 (#0)
+> GET / HTTP/1.1
+> Host: 10.10.76.230
+> User-Agent: curl/7.88.1
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Date: Sun, 08 Oct 2023 12:16:40 GMT
+< Server: Apache/2.4.18 (Ubuntu)
+< Last-Modified: Thu, 12 Nov 2020 04:53:12 GMT
+< ETag: "328-5b3e1b06be884"
+< Accept-Ranges: bytes
+< Content-Length: 808
+< Vary: Accept-Encoding
+< Content-Type: text/html
+< 
+<!doctype html>
+<title>Maintenance</title>
+<style>
+  body { text-align: center; padding: 150px; }
+  h1 { font-size: 50px; }
+  body { font: 20px Helvetica, sans-serif; color: #333; }
+  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
+  a { color: #dc8100; text-decoration: none; }
+  a:hover { color: #333; text-decoration: none; }
+</style>
+
+<article>
+    <h1>No spice here!</h1>
+    <div>
+        <!--when are we gonna update this??-->
+        <p>Please excuse us as we develop our site. We want to make it the most stylish and convienient way to buy peppers. Plus, we need a web developer. BTW if you're a web developer, <a href="mailto:#">contact us.</a> Otherwise, don't you worry. We'll be online shortly!</p>
+        <p>&mdash; Dev Team</p>
+    </div>
+</article>
+
+* Connection #0 to host 10.10.76.230 left intact
+```
+
+Not much to go on about. Taking a look at the `/files` direcotry we can see some things but not a lot of interesting stuff. <br/>
+Although 1 thing to keep in mind is the direcotry `/files/ftp/`. Let's try the ftp Port we found with nmap:
+```sh
+ftp $ip
+Connected to 10.10.76.230.
+220 (vsFTPd 3.0.3)
+Name (10.10.76.230:kali): anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+229 Entering Extended Passive Mode (|||47265|)
+150 Here comes the directory listing.
+drwxrwxrwx    2 65534    65534        4096 Oct 08 11:53 ftp
+-rw-r--r--    1 0        0          251631 Nov 12  2020 important.jpg
+-rw-r--r--    1 0        0             208 Nov 12  2020 notice.txt
+226 Directory send OK.
+```
+
+Seems like anonymous login worked. Here we can also see the files we found on the website direcotry `/files`.
+But again there is not a lot of interesting stuff here. Let's try to uplaod something.
+```sh
+put test.txt
+local: test.txt remote: test.txt
+229 Entering Extended Passive Mode (|||49222|)
+553 Could not create file.
+```
+
+Seems like this didn't work, but there is also another direcotry.
+```sh
+ftp> cd ftp
+250 Directory successfully changed.
+ftp> put test.txt
+local: test.txt remote: test.txt
+229 Entering Extended Passive Mode (|||33317|)
+150 Ok to send data.
+     0        0.00 KiB/s 
+226 Transfer complete.
+```
+
+Taking a look at the website:
+```sh
+curl http://$ip/files/ftp/
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /files/ftp</title>
+ </head>
+ <body>
+<h1>Index of /files/ftp</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=D">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/files/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="exploit.php">exploit.php</a></td><td align="right">2023-10-08 11:53  </td><td align="right">5.4K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="test.txt">test.txt</a></td><td align="right">2023-10-08 12:25  </td><td align="right">  0 </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.18 (Ubuntu) Server at 10.10.76.230 Port 80</address>
+</body></html>
+```
+
+It seems like we are able to upload files via ftp and read them in the browser. <br/>
+This normally indicates that a reverse shell is possible.
+
+
+
+
+
