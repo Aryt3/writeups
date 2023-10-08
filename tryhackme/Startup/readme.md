@@ -224,3 +224,27 @@ www-data@startup:/$ ls incidents
 ls incidents
 suspicious.pcapng
 ```
+
+We can try to read the file wit hwireshark so let's do that.
+```sh
+$ cp /incidents/suspicious.pcapng /var/www/html/files/ftp/
+```
+
+Than using ftp we can download the file:
+```sh
+ftp> get suspicious.pcapng
+local: suspicious.pcapng remote: suspicious.pcapng
+229 Entering Extended Passive Mode (|||11380|)
+150 Opening BINARY mode data connection for suspicious.pcapng (31224 bytes).
+100% |******************************************************************************************************************************************************************************************************************| 31224      435.21 KiB/s    00:00 ETA226 Transfer complete.
+31224 bytes received in 00:00 (219.39 KiB/s)
+```
+
+We can instantly see that there is a lot going on here.
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/bdb9ccf3-59d0-434d-91c8-1e249e52a56e)
+
+Looking at the http requests we can see some interesting things.
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/c3b5a8b7-738c-4dd3-8296-13f35ba9966c)
+
+
+
