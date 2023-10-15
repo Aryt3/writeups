@@ -96,7 +96,7 @@ skyfuck@ubuntu:~$ ls
 credential.pgp  tryhackme.asc
 ```
 
-After taking a closer look at those files I want to look around further.
+Before taking a closer look at those files I want to look around further.
 ```sh
 skyfuck@ubuntu:~$ ls /home/
 merlin  skyfuck
