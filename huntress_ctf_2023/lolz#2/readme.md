@@ -56,7 +56,7 @@ Doing this with the other letters too I got the following: `a` equals `1` and `f
 So now I got the following: `Bt`(a) and `By`(f). <br/>
 taking `t` and `y` they are also 4 letters apart. <br/>
 
-Knowing this I made a table to decode every letter:
+Knowing this I made a table to decode the letters I can be sure about:
 | letter | Letter-Pair |
 | :----: | :---------: |
 | a | Bt |
@@ -66,24 +66,28 @@ Knowing this I made a table to decode every letter:
 | e | Bx |
 | f | By |
 | g | Bz |
-| h | BA |
-| i | BB |
-| j | BC |
-| k | BD |
-| l | BE |
-| m | BF |
-| n | BG |
-| o | BH |
-| p | BI |
-| q | BJ |
-| r | BK |
-| s | BL |
-| t | BM |
-| u | BN |
-| v | BO |
-| w | BP |
-| x | BQ |
-| y | BR |
-| z | BS | 
+
+Now we know some letters. Continuing this makes no sense as we do know that `l` equals `CE`. <br/>
+I will deocde it now with the things we know: `f l a g { d BA BB c b BA b Ay Aw BB BD Aw f e BE Az f Aw Az c f BF Ay e BD BC BE b d Aw f b }`. <br/>
+
+So let's list the remaining letter-pairs: `BA BB Ay Aw BD BE Az BF BC`. <br/>
+Knowing that it can't be letters because it wouldn't make sense as we know from previous documentation. <br/>
+
+As there are only numbers left I resume to list the following table:
+| Letter-Pair | number |
+| :---------: | :----: |
+| Aw | 0 |
+| Ax | 1 |
+| Ay | 2 |
+| Az | 3 |
+| BA | 4 |
+| BB | 5 |
+| BC | 6 |
+| BD | 7 |
+| BE | 8 |
+| BF | 9 |
+
+This would be my first guess to put the numbers together. <br/>
+Trying it out in CyberChef with around 17 `Find / Replace` filters we get the flag `flag{d45cb4b20570fe83f03cf92e768bd0fb}`.
 
 
