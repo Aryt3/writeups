@@ -6,6 +6,6 @@
 
 | CTF | Date | Ranking |
 | ------------- | ------------- | ----- |
-| ACSC-Qualifying | 2023 | 5/320 |
-| ACSC-Finals | 2023 | 3/4 |
+| ACSC-Qualifying-Junior | 2023 | 5/320 |
+| ACSC-Finals-Junior | 2023 | 3/4 |
 | Huntress-CTF | 2023 | ? |
