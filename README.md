@@ -2,7 +2,7 @@
 > [!NOTE]
 > This is a repository displaying all the CTF-Challenges I solved in different CTFs. 
 >
-> The following table should display the CTFs I took part at.
+> The following table should display the CTFs I took part in.
 
 | CTF | Year | Participation Type | Ranking | 
 | ------------- | ------------- | :-------------:  | :-----: |
