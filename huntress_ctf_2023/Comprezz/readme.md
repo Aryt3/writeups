@@ -2,7 +2,7 @@
 
 A compressed folder, let's try some tools on it:
 ```sh
-gzip -d comprezz
+kali@kali gzip -d comprezz
 bzip2 -d comprezz
 tar -xvf comprezz
 unzip comprezz
@@ -36,14 +36,14 @@ Everything is Ok
 Size:       39
 Compressed: 45
 
-# ls
+kali@kali ls
 comprezz  comprezz~
 
-# file comprezz\~ 
+kali@kali file comprezz\~ 
 comprezz~: ASCII text
 
-# strings comprezz\~ 
+kali@kali strings comprezz\~ 
 flag{196a71490b7b55c42bf443274f9ff42b}
 ```
 
-As easy as that.
+Like this we received the flag `flag{196a71490b7b55c42bf443274f9ff42b}`.
