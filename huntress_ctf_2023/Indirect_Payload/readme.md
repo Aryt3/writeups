@@ -1,5 +1,12 @@
 # Indirect Payload
 
+## Description
+```
+We saw this odd technique in a previous malware sample, where it would uncover it's next payload by... well, you'll see.
+```
+
+## Writeup
+
 Starting the with the challenge I make a curl request to the website: <br/>
 ```sh
 kali@kali curl -v http://chal.ctf.games:31232/             
