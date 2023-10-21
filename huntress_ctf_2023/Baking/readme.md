@@ -1,6 +1,12 @@
 # Baking
 
-Starting the challenge we find this description: `Do you know how to make cookies? How about HTTP flavored?`. <br/>
+## Description 
+```
+Do you know how to make cookies? How about HTTP flavored?
+```
+
+## Writeup
+
 Taking a look at the website we find this: <br/>
 ![grafik](https://github.com/Aryt3/writeups/assets/110562298/2e14a515-55d8-4196-9ca1-ce8a6344bbf1)
 
