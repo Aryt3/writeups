@@ -1,6 +1,12 @@
 # BaseFFFF+1
 
-Starting the challenge we get the following description: `Maybe you already know about base64, but what if we took it up a notch?`. <br/>
+## Description
+```
+Maybe you already know about base64, but what if we took it up a notch?
+```
+
+## Writeup
+
 Now everybody should know base64 encoding and also maybe base85 but looking at the content of the file I can instantly see that it's not your typical base85. <br/>
 
 The content of the file looks like this: `鹎驣𔔠𓁯噫谠啥鹭鵧啴陨驶𒄠陬驹啤鹷鵴𓈠𒁯ꔠ𐙡啹院驳啳驨驲挮售𖠰筆筆鸠啳樶栵愵欠樵樳昫鸠啳樶栵嘶谠ꍥ啬𐙡𔕹𖥡唬驨驲鸠啳𒁹𓁵鬠陬潧㸍㸍ꍦ鱡汻欱靡驣洸鬰渰汢饣汣根騸饤杦样椶𠌸`. 
