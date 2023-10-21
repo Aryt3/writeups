@@ -1,5 +1,12 @@
 # VeeBeeEee
 
+## Description
+```
+While investigating a host, we found this strange file attached to a scheduled task. It was invoked with wscript or something... can you find a flag?
+```
+
+## Writeup
+
 This is a maleware analysis challenge. <br/>
 In the description we see that the maleware was invoked with `wscript`. <br/>
 Taking a look at the file in general:
