@@ -1,5 +1,12 @@
 # Chicken Wings
 
+## Description
+```
+I ordered chicken wings at the local restaurant, but uh... this really isn't what I was expecting...
+```
+
+## Writeup
+
 Starting this challenge we receive a file. <br/>
 The first thing I do is uploading the file to CyberChef to detect certain things. <br/>
 The content of the file seems to be `♐●♋♑❀♏📁🖮🖲📂♍♏⌛🖰♐🖮📂🖰📂🖰🖰♍📁🗏🖮🖰♌📂♍📁♋🗏♌♎♍🖲♏❝`. <br/>
