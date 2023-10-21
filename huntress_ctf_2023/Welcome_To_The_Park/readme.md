@@ -11,7 +11,7 @@ Provided Files: welcomeToThePark.zip
 
 Starting off I unziped the archive and took a look at its contents. <br/>
 ```sh
-ls -la -R welcome
+kali@kali ls -la -R welcome
 welcome:
 total 28
 drwxr-xr-x 4 root root 4096 Sep 27 20:27 .
@@ -144,4 +144,20 @@ if [[ -s "${tmp}" ]];
 fi; 
 rm "${tmp}" | /bin/zsh
 ```
+
+After deobfuscating this I got a URL `https://gist.github.com/stuartjash/a7d187c44f4327739b752d037be45f01`. <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/50a5d993-b633-4d7b-b472-24abb2ad9921)
+
+Accessing the URL I found a picture. <br/>
+Inspecting the picture: <br/>
+```sh
+kali@kali strings JohnHammond.jpg
+
+---------------------------------
+flag{680b736565c76941a364775f06383466}
+```
+
+Like this I got the flag for this short challenge.
+
+
 
