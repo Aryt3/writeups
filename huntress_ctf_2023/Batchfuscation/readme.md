@@ -95,7 +95,7 @@ Doing the following deobfuscating steps for those.
 | %kquqjy% | t |
 | %kmgnxdhqb% | [SPACE] |
 
-Applying this we receive deobfuscated code liek the one below. <br/>
+Applying this we receive deobfuscated code like the one below. <br/>
 ```bat
 set /a bpquuu=4941956 %% 4941859
 cmd /c exit %bpquuu%
