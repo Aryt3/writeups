@@ -23,3 +23,4 @@
 > | OWASP Juice Shop | easy |
 > | Mr Robot CTF | easy |
 > | Glitch | easy |
+> | DogCat | medium |
