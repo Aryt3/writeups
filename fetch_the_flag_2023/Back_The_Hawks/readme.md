@@ -9,3 +9,35 @@ NOTE - any resemblence to other companies, non-profits, services, login portal c
 
 ## Writeup
 
+Taking a look at the website: <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/40102a23-85cb-455b-9558-10f20bb57e09)
+
+Taking a look around I found some javascript code. <br/>
+```js
+function makeInviteCode() {
+    var o = "! edoc/etivni/skwah/eht/kcab/ ot tseuqer TSOP a ekaM !skwaH eht gnikcaB htiw nwod er'uoy erus ekam ot tnaw YLLAER ,yllaer eW";
+
+    var d = o.split('').reverse().join('');
+
+    console.log(d);
+}
+```
+
+Executing the function in the browser we receive the following. <br/>
+```js
+makeInviteCode();
+We really, REALLY want to make sure you're down with Backing the Hawks! Make a POST request to /back/the/hawks/invite/code !
+```
+
+Sending the POST request to `/back/the/hawks/invite/code`.
+```sh
+kali@kali curl -X POST http://challenge.ctf.games:31955/back/the/hawks/invite/code
+{"hint":"this message is encrypted, there's no way to break it! Forget about backing the hawks. Your journey ends here.","message":"TB_LRQ_EBOB_YXZHFK_QEB_EXTHP_2023"}
+```
+
+Now to me this does kind of sound provocative and false. <br/>
+Also I kind of thought that this might just be a sentence wit ha bit shift in there. <br/>
+
+So doing a caesar cipher bruteforce I actually received the valid key `WE_OUT_HERE_BACKIN_THE_HAWKS_2023`. <br/>
+Using the key to register we are able to find the flag. <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/8c470741-ccf1-4406-b0a6-80b2125acd6f)
