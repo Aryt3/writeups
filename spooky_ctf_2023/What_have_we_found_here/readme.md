@@ -13,3 +13,17 @@ As I gazed up at the starry night sky, seeing the Leo Minor constellation in the
 
 ## Writeup
 
+Starting off we take a look at the provided file. <br/>
+Now putting it into different analyse-engines like cyberchef tells us that this is a base64 encoded string. <br/>
+
+Decoding it leads to nothing as it is simply gibberish. <br/>
+I used cat to pipe the base64 decoded string into a file. <br/>
+```sh
+kali@kali cat note.txt | base64 -d > output
+```
+
+I suddenly saw somethign interesting pop up on my screen. <br/>
+Seems like the base64 decoded string is just a plain image. <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/36f6b066-24ad-40cd-9b5f-c667df542821)
+
+Seems like we found our flag. 
