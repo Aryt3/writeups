@@ -19,3 +19,14 @@ flag format: NICC{#_Street_Address_City_XX}
 
 ## Writeup
 
+Starting off we have a provided image. <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/b20ace08-80a9-451d-bad1-97e82cfdc70c)
+
+by simply input parts of the image into google image search we are able to find some websites. <br/>
+This one is especially interesting https://washington.org/de/visit-dc/where-to-find-street-murals-washington-dc. <br/>
+
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/e42ff78b-b45d-457c-96e2-f0237c2d03eb)
+
+Seems like we found our street name. <br/>
+Now we only need to get the correct format together and after some tinkering I got it. <br/>
+Correct Format: `NICC{950_24th_Street_NW_Washington_DC}`.
