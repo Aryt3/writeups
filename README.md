@@ -9,5 +9,5 @@
 > | ACSC-Qualifying-Junior | 2023 | Solo | 5/320 |
 > | ACSC-Finals-Junior | 2023 | Team | 3/4 |
 > | Huntress-CTF | 2023 | Team | ? |
-> | Fetch-The-Flag-CTF | 2023 | Team | ? |
+> | Fetch-The-Flag-CTF | 2023 | Solo | 472/1287 |
 > | Spooky-CTF | 2023 | Team | ? |
