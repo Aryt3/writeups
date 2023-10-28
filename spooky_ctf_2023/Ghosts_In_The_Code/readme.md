@@ -1,4 +1,4 @@
-# Quick Maths
+# Ghosts in the Code
 
 ## Description
 ```
