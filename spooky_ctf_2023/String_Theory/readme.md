@@ -1,4 +1,4 @@
-# Quick Maths
+# String Theory
 
 ## Description
 ```

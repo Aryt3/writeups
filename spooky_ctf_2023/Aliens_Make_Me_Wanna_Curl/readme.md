@@ -1,4 +1,4 @@
-# Quick Maths
+# Aliens make me wanna Curl
 
 ## Description
 ```

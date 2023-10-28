@@ -1,4 +1,4 @@
-# Quick Maths
+# The Wizard
 
 ## Description
 ```
