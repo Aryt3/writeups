@@ -19,7 +19,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiMTIzIiwiYXV0aG9yaXplZCI6dHJ1ZSw
 
 Deocding the cookie with base64 we receive. <br/>
 ```
-{"alg":"HS256","typ":"JWT"}{"name":"123","authorized":true,"admin":false,"iat":1698480699,"exp":1698480999}%B]ID>SJg	
+{"alg":"HS256","typ":"JWT"}{"name":"123","authorized":true,"admin":false,"iat":1698480699,"exp":1698480999}...
 ```
 
 Now I already knew that it looked like a json web token but now I know for sure. <br/>
