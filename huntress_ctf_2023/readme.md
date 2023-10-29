@@ -5,18 +5,18 @@
 >
 > Below you find a table listing the challenges and their grading.
 > 
-> | Challenge-Name | Difficulty |
-> | :------------: | :--------: |
-> | Comprezz | easy |
-> | Chicken Wings | easy |
-> | BaseFFFF+1 | easy |
-> | Baking | easy |
-> | VeeBeeEee | easy |
-> | Welcome to the Park | easy |
-> | Backdoored Splunk | medium |
-> | Operation Eradication | medium |
-> | Indirect Payload | medium |
-> | Under the Bridge | medium |
-> | Operation Not Found | medium |
-> | Snake Oil | medium |
-> | Batchfuscation | medium |
+> | Challenge-Name | Difficulty | Category |
+> | :------------: | :--------: | :------: |
+> | Comprezz | easy | Forensics |
+> | Chicken Wings | easy | Crypto |
+> | BaseFFFF+1 | easy | Crypto |
+> | Baking | easy | Web |
+> | VeeBeeEee | easy | Reverse Engineering |
+> | Welcome to the Park | easy | Forensics |
+> | Backdoored Splunk | medium | Forensics, Web |
+> | Operation Eradication | medium | Web |
+> | Indirect Payload | medium | Web |
+> | Under the Bridge | medium | OSINT |
+> | Operation Not Found | medium | OSINT |
+> | Snake Oil | medium | Malware Analysis |
+> | Batchfuscation | medium | Reverse Engineering |
