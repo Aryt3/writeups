@@ -103,7 +103,7 @@ merlin  skyfuck
 skyfuck@ubuntu:~$ ls /home/merlin
 user.txt
 skyfuck@ubuntu:~$ cat /home/merlin/user.txt
-THM{GhostCat_1s_so_cr4sy}
+THM{REDACTED}
 ```
 
 Seems like we got our first flag. <br/>
@@ -198,5 +198,5 @@ Getting the last flag:
 # ls
 root.txt  ufw
 # cat root.txt  
-THM{Z1P_1S_FAKE}
+THM{REDACTED}
 ```

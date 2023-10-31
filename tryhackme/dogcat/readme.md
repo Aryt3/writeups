@@ -143,7 +143,7 @@ Connection: close
 Viewing the logs: <br/>
 ![grafik](https://github.com/Aryt3/writeups/assets/110562298/1339543d-0012-46db-8316-d8cf527820d0)
 
-After knowing that it works I sent another request to implement a way t oexecute commands. <br/>
+After knowing that it works I sent another request to implement a way to execute commands. <br/>
 ```sh
 GET / HTTP/1.1
 Host: 10.10.27.254

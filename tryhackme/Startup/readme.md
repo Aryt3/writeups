@@ -268,7 +268,7 @@ Getting the second Flag:
 lennie@startup:/$ ls /home/lennie/
 Documents  scripts  user.txt
 lennie@startup:/$ cat /home/lennie/user.txt
-THM{03ce3d619b80ccbfb3b7fc81e46c0e79}
+THM{REDACTED}
 ```
 
 Looking for basic priviledge escalation:
@@ -352,7 +352,7 @@ ls
 root.txt
 root@startup:~# cat root.txt
 cat root.txt
-THM{f963aaa6a430f210222158ae15c3d76d}
+THM{REDACTED}
 ```
 
 

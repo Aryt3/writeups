@@ -294,7 +294,7 @@ vianka
 www-data@ubuntu:/$ ls /home/vianka/
 redis-stable  user.txt
 www-data@ubuntu:/$ cat /home/vianka/user.txt
-thm{red1s_rce_w1thout_credent1als}
+thm{REDACTED}
 ```
 
 After using linpeas for further enumeration I found that we got elevated permissions on a binary:
@@ -377,7 +377,7 @@ root
 root@ubuntu:/# ls /root/
 root.txt
 root@ubuntu:/# cat /root/*
-thm{xxd_pr1v_escalat1on}
+thm{REDACTED}
 ```
 
 

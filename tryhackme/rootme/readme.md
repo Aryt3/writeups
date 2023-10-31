@@ -229,7 +229,7 @@ nc -lnvp 9999
 ``` 
 
 Answer:
-`THM{y0u_g0t_a_sh3ll}` seems to be the content for `user.txt`.
+`THM{REDACTED}` seems to be the content for `user.txt`.
 
 <br/>
 
@@ -255,5 +255,5 @@ Question:
 What is the content of `root.txt`?
 
 Answer:
-`THM{pr1v1l3g3_3sc4l4t10n}` is the content of `root.txt`.
+`THM{REDACTED}` is the content of `root.txt`.
 

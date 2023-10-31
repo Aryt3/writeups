@@ -3,7 +3,7 @@
 > [!NOTE]
 > This is a sub directory for storing all writeups on tryhackme challenge rooms I solved.
 >
-> My current global ranking is `43804` so I am placed in the top `5%`.
+> My current global ranking is `39584` so I am placed in the top `5%`.
 >
 > Below you can find a table with all the challenge rooms and their difficulty.
 >
@@ -23,4 +23,5 @@
 > | OWASP Juice Shop | easy |
 > | Mr Robot CTF | easy |
 > | Glitch | easy |
+> | Expose | easy |
 > | DogCat | medium |

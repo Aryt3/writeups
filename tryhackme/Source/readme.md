@@ -140,11 +140,11 @@ dark
 /home/dark:
 user.txt  webmin_1.890_all.deb
 root@source:/usr/share/webmin/# cat /home/dark/user.txt
-THM{SUPPLY_CHAIN_COMPROMISE}
+THM{REDACTED}
 root@source:/usr/share/webmin/# ls /root/
 root.txt
 root@source:/usr/share/webmin/# cat /root/root.txt   
-THM{UPDATE_YOUR_INSTALL}
+THM{REDACTED}
 ```
 
 Here we got both Flags at once.

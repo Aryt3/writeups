@@ -271,7 +271,7 @@ We also got the first flag:
 ls
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  user.txt  Videos
 alex@ubuntu:~$ cat user.txt 
-flag{1_hop3_y0u_ke3p_th3_arch1v3s_saf3}
+flag{REDACTED}
 ```
 
 Now we have to do some priviledge escalation:
@@ -406,5 +406,5 @@ Finally reading the last Flag:
 sudo /etc/mp3backups/backup.sh -c "cat /root/root.txt"
 ...
 Backup finished
-flag{Than5s_f0r_play1ng_H0p£_y0u_enJ053d}
+flag{REDACTED}
 ```

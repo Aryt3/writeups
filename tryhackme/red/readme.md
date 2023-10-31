@@ -237,7 +237,7 @@ drwx------ 2 blue blue 4096 Aug 13  2022 .cache
 -rw-r--r-- 1 blue blue   16 Aug 14  2022 .reminder
 drwx------ 2 root blue 4096 Aug 13  2022 .ssh
 blue@red:~$ cat flag1 
-THM{Is_thAt_all_y0u_can_d0_blU3?}
+THM{REDACTED}
 ```
 
 After this I want to take a look at priviledge escalation.
@@ -292,7 +292,7 @@ ls
 flag2
 red@red:~$ cat * 
 cat *
-THM{Y0u_won't_mak3_IT_furTH3r_th@n_th1S}
+THM{REDACTED}
 ```
 
 Enumerating the user red:
