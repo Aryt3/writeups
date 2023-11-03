@@ -11,4 +11,4 @@
 > | Huntress-CTF | 2023 | Team | 68/4213 |
 > | Fetch-The-Flag-CTF | 2023 | Solo | 472/1287 |
 > | Spooky-CTF | 2023 | Team |  |
-> | EKOParty-CTF | 2023 | Team | ? |
+> | EKOParty-CTF | 2023 | Team | 32/550 |
