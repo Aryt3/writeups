@@ -12,3 +12,5 @@
 > | Fetch-The-Flag-CTF | 2023 | Solo | 472/1287 |
 > | Spooky-CTF | 2023 | Team |  |
 > | EKOParty-CTF | 2023 | Team | 32/550 |
+> | TSG-CTF | 2023 | Team | 254/561 |
+> | Lake-CTF | 2023 | Team | ? |
