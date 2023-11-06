@@ -146,7 +146,7 @@ rm "${tmp}" | /bin/zsh
 ```
 
 After deobfuscating this I got a URL `https://gist.github.com/stuartjash/a7d187c44f4327739b752d037be45f01`. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/50a5d993-b633-4d7b-b472-24abb2ad9921)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/82bd7693-bdda-4057-86e4-718e7cd46541)
 
 Accessing the URL I found a picture. <br/>
 Inspecting the picture: <br/>
