@@ -21,7 +21,7 @@ pass = HOUg3Z2KV2xlQpUfj6CYLLqCspvexpRXU9v8EGBFHq543ySEoZE9YSdH7t8je5rWfBIIMS-5
 ```
 
 After seeing this I took a look at the website. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/1a522ce5-f441-4b79-921a-52d945c60ac9)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/437bc667-ff8d-482f-a684-ffd81f4e1c5d)
 
 Directory Scan: <br/>
 ```sh
@@ -69,7 +69,7 @@ ________________________________________________
 ```
 
 Seems like I found `/webdav`. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/a8d11610-fff5-40f2-8995-a02c70067bc5)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/0811ee76-1d44-41f8-b3b2-e94b6e4359f4)
 
 Trying to access it I got a login prompt which was not accessable with default credentials. <br/>
 After some researching I found that the configuration file I got in the beginning matches a Tool to connect to webdav. <br/>
@@ -151,7 +151,8 @@ $ rm -r webdav/
 ```
 
 Now I take a look at the website again where I found the Flag: <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/4a06acb0-4cbb-4cc5-912b-70dcf15a924c)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/c68b1c23-fc4d-49ea-a44c-c5427d30e8c3)
+
 
 
 
