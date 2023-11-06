@@ -18,7 +18,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 We got a few services running but I can instantly see an application running on Port `8080` named Tomcat. <br/>
 So I would just make a quick browser search for known exploits. <br/>
 
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/8f316966-b846-4017-a809-1160fd813237)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/837e1e74-f530-4a59-8606-12636c3a5728)
 
 Now I could take a look around the website and try to find something but there seem to be a lot of exploits for Tomcat. <br/>
 So this leads me to https://www.exploit-db.com/exploits/48143. <br/>
