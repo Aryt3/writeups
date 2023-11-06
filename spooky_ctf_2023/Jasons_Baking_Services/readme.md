@@ -10,7 +10,7 @@ Hey intern! We were able to swipe Jasons application from Github, see if you can
 ## Writeup
 
 We are provided the website link and also the files of the website. <br/>
-![image](https://github.com/Aryt3/writeups/assets/110562298/5a0144fb-d74f-4ba0-8c27-46632921b8ee)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/1c6a4c75-44a2-4d4c-ba3d-32e8c3733cfa)
 
 After logging in we can see that we have a cookie. <br/>
 ```
