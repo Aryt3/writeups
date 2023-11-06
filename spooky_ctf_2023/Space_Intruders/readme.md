@@ -8,10 +8,10 @@ Our space ship was hacked a few days ago. We have made sure to improve our secur
 ## Writeup
 
 Taking a look at the website. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/42859d1e-d6dc-40ac-ab3c-7a7cd6920fdf)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/4fdddeca-e1ce-41ce-b3eb-7bcc42613449)
 
 I can find nothing of interest on the homepage. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/025ff9aa-c6cc-4229-98fd-101c387e1b94)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/6964dde3-bfe7-4bd7-b08b-558f0461a31c)
 
 I tried some things but couldn't identify anything of interest, so let's move on to burp suite. <br/>
 Taking a look at the normal response header. <br/>
@@ -32,7 +32,7 @@ The interesting thing to us is that this backend architecture often uses `MongoD
 Looking up some nosql type injections I chose to take a look at hacktrix. (https://book.hacktricks.xyz/pentesting-web/nosql-injection)<br/>
 
 After trying some of those out I was able to receive error warnings like the following. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/bfb81c3b-0a25-44f3-96d4-b49029414515)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/ec20c078-83f3-40be-834f-51cccb9a0643)
 
 I concluded that I am on the right path and continued looking for working injections until I found 1 section. <br/>
 
