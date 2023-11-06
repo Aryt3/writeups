@@ -16,8 +16,8 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 42.93 seconds
 ```
 
-Accessing the Website:
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/7688cba4-7ea9-4a7f-986a-f9ab9f001490)
+Accessing the Website: <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/43d7379a-ed1d-45e3-9bba-db5e60604e42)
 
 Seems like a login is running here from webmin.
 
