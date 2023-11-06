@@ -8,7 +8,7 @@ We found a vulnerability in this company's software and we are trying to do resp
 ## Writeup
 
 Starting off we can see a normal website without any suspicious content. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/2cd37734-0e21-4bd2-93c9-77fcae725711)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/97efb281-9609-469d-b76d-957ed8e05b24)
 
 We do see `RFC9116` an awful lot. <br/>
 Searching for the term we find `security.txt`. <br/>
