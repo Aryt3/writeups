@@ -10,7 +10,7 @@ NOTE - any resemblence to other companies, non-profits, services, login portal c
 ## Writeup
 
 Taking a look at the website: <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/40102a23-85cb-455b-9558-10f20bb57e09)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/b73ebcab-7c98-42a7-8fe2-840ecbcac9d0)
 
 Taking a look around I found some javascript code. <br/>
 ```js
@@ -40,4 +40,5 @@ Also I kind of thought that this might just be a sentence wit ha bit shift in th
 
 So doing a caesar cipher bruteforce I actually received the valid key `WE_OUT_HERE_BACKIN_THE_HAWKS_2023`. <br/>
 Using the key to register we are able to find the flag. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/8c470741-ccf1-4406-b0a6-80b2125acd6f)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/9f61da39-d2ac-44a1-9722-2208a361d1cc)
+
