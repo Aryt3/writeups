@@ -22,8 +22,8 @@ I used cat to pipe the base64 decoded string into a file. <br/>
 kali@kali cat note.txt | base64 -d > output
 ```
 
-I suddenly saw somethign interesting pop up on my screen. <br/>
+I suddenly saw something interesting pop up on my screen. <br/>
 Seems like the base64 decoded string is just a plain image. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/36f6b066-24ad-40cd-9b5f-c667df542821)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/eb9fc410-1081-4a35-9e4d-0dc55dcd3160)
 
 Seems like we found our flag. 
