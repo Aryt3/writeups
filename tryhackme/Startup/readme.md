@@ -240,15 +240,15 @@ local: suspicious.pcapng remote: suspicious.pcapng
 31224 bytes received in 00:00 (219.39 KiB/s)
 ```
 
-We can instantly see that there is a lot going on here.
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/bdb9ccf3-59d0-434d-91c8-1e249e52a56e)
+We can instantly see that there is a lot going on here. <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/cc874aae-5e89-4bee-984e-4c1fa1efcf8d)
 
-Looking at the `http` requests we can see some interesting things.
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/c3b5a8b7-738c-4dd3-8296-13f35ba9966c)
+Looking at the `http` requests we can see some interesting things. <br/>
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/17975468-670d-4322-adbc-4a07b90bd90b)
 
-Now I can dump all the info into a `.txt` file and try to get more info.
-
-After inspecting the output some more I was able to discover a login atempt
+Cut off we see a weird password attempt with a new password. <br/>
+Now I can dump all the info into a `.txt` file and try to get more info. <br/>
+After inspecting the output some more I was able to discover a login atempt <br/>
 ```sh
 [sudo] password for www-data:
 c4ntg3t3n0ughsp1c3
