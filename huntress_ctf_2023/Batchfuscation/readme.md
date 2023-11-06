@@ -195,6 +195,4 @@ D:\Downloads>set flag_character29=6
 ```
 
 After getting this I opened CyberChef for some quick regex. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/838adf43-1e1b-4403-a632-797a254ac6e1)
-
 After sorting the characters I got the flag `flag{acad67e3d0b5bf31ac6639360db9d19a}`.
