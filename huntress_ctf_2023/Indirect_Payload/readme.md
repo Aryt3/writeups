@@ -203,7 +203,7 @@ character 37 of the payload is }
 ```
 
 Now we have the flag but I don't want to enter it manually. So I paste all the content into CyberChef and add a `Find / Replace` module. <br/>
-![grafik](https://github.com/Aryt3/writeups/assets/110562298/e4a39b6b-e53e-4674-b410-e289ff4c46ae)
+![grafik](https://github.com/Aryt3/writeups/assets/110562298/88dc922c-9e72-424a-8968-bacf62833901)
 
 There I used Regex to cut out the phrases in front of the flag-parts. The Regular Expression: `character \d+ of the payload is`. <br/>
 I also used another `Find / Replace` to cut out spaces and to drop the lines. The Regular Expression: `\n `. <br/>
