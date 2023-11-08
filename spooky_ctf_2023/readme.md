@@ -5,14 +5,14 @@
 >
 > Below you find a table listing the challenges and their grading.
 > 
-> | Challenge-Name | Difficulty | Category |
-> | :------------: | :--------: | :------: |
-> | Treat Interns nicely! | easy | MISC |
-> | Aliens Make Me Wanna Curl | easy? | Web |
-> | Ghosts in the Code | easy | Web |
-> | Jasons Baking Services | medium? | Web |
-> | Space Intruders | medium? | Web |
-> | The Wizard | easy | OSINT |
-> | String Theory | easy | bin |
-> | Needle In a Haystack | easy | MISC |
-> | What have we found here... | easy | Crypto |
+> | Challenge-Name | Difficulty | Category | Writeup |
+> | :------------: | :--------: | :------: | :-----: |
+> | Treat Interns nicely! | easy | MISC | No Writeup |
+> | Aliens Make Me Wanna Curl | easy? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/spooky_ctf_2023/Aliens_Make_Me_Wanna_Curl) |
+> | Ghosts in the Code | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/spooky_ctf_2023/Ghosts_In_The_Code) |
+> | Jasons Baking Services | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/spooky_ctf_2023/Jasons_Baking_Services) |
+> | Space Intruders | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/spooky_ctf_2023/Space_Intruders) |
+> | The Wizard | easy | OSINT | [Writeup](https://github.com/Aryt3/writeups/tree/main/spooky_ctf_2023/The_Wizard) |
+> | String Theory | easy | bin | [Writeup](https://github.com/Aryt3/writeups/tree/main/spooky_ctf_2023/String_Theory) |
+> | Needle In a Haystack | easy | MISC | [Writeup](https://github.com/Aryt3/writeups/tree/main/spooky_ctf_2023/Needle_In_a_Haystack) |
+> | What have we found here... | easy | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/spooky_ctf_2023/What_have_we_found_here) |
