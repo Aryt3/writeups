@@ -7,21 +7,21 @@
 >
 > Below you can find a table with all the challenge rooms and their difficulty.
 >
-> | Room Name | Difficulty |
-> | :-------: | :--------: |
-> | Res | easy |
-> | Source | easy |
-> | Startup | easy |
-> | Cyborg | easy |
-> | Red | easy |
-> | RootMe | easy |
-> | Tomghost | easy |
-> | Vulnversity | easy |
-> | Pickle Rick | easy |
-> | Simple CTF | easy |
-> | Agent Sudo | easy |
-> | OWASP Juice Shop | easy |
-> | Mr Robot CTF | easy |
-> | Glitch | easy |
-> | Expose | easy |
-> | DogCat | medium |
+> | Room Name | Difficulty | Writeup |
+> | :-------: | :--------: | :-----: |
+> | Res | easy | [Writeup](https://github.com/Aryt3/writeups/tree/main/tryhackme/Res) |
+> | Source | easy | [Writeup](https://github.com/Aryt3/writeups/tree/main/tryhackme/Source) |
+> | Startup | easy | [Writeup](https://github.com/Aryt3/writeups/tree/main/tryhackme/Startup) |
+> | Cyborg | easy | [Writeup](https://github.com/Aryt3/writeups/tree/main/tryhackme/cyborg) |
+> | Red | easy | [Writeup](https://github.com/Aryt3/writeups/tree/main/tryhackme/red) |
+> | RootMe | easy | [Writeup](https://github.com/Aryt3/writeups/tree/main/tryhackme/rootme) |
+> | Tomghost | easy | [Writeup](https://github.com/Aryt3/writeups/tree/main/tryhackme/tomghost) |
+> | Vulnversity | easy | No Writeup |
+> | Pickle Rick | easy | No Writeup |
+> | Simple CTF | easy | No Writeup |
+> | Agent Sudo | easy | No Writeup |
+> | OWASP Juice Shop | easy | No Writeup |
+> | Mr Robot CTF | easy | No Writeup |
+> | Glitch | easy | No Writeup |
+> | Expose | easy | No Writeup |
+> | DogCat | medium | [Writeup](https://github.com/Aryt3/writeups/tree/main/tryhackme/dogcat) |
