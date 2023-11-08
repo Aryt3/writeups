@@ -7,10 +7,10 @@
 >
 > Below you find a table listing the challenges and their grading.
 >
-> | Challenge-Name | Difficulty | Category |
-> | :------------: | :--------: | :------: |
-> | Finders Keepers | easy | Linux |
-> | Unhackable Andy | easy | Web |
-> | Back the Hawks | easy | Web |
-> | Quick Maths | easy | Programming |
-> | Nine-One-Sixteen | easy | OSINT |
+> | Challenge-Name | Difficulty | Category | Writeup |
+> | :------------: | :--------: | :------: | :-----: |
+> | Finders Keepers | easy | Linux | [Writeup](https://github.com/Aryt3/writeups/tree/main/fetch_the_flag_2023/Finders_Keepers) |
+> | Unhackable Andy | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/fetch_the_flag_2023/Unhackable_Andy) |
+> | Back the Hawks | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/fetch_the_flag_2023/Back_The_Hawks) |
+> | Quick Maths | easy | Programming | [Writeup](https://github.com/Aryt3/writeups/tree/main/fetch_the_flag_2023/Quick_Maths) |
+> | Nine-One-Sixteen | easy | OSINT | [Writeup](https://github.com/Aryt3/writeups/tree/main/fetch_the_flag_2023/Nine_One_Sixteen) |
