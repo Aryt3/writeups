@@ -14,4 +14,4 @@
 > | EKOParty-CTF | 2023 | Team | 32/550 | [Writeups](https://github.com/Aryt3/writeups/tree/main/ekoparty_ctf_2023) |
 > | TSG-CTF | 2023 | Team | 254/561 | [Writeups]() |
 > | Lake-CTF | 2023 | Team |  | No Writeups |
-> | Cybercoliseum II | 2023 | Team | ? | |
+> | Cybercoliseum II | 2023 | Team | 103/1169 | [Writeups](https://github.com/Aryt3/writeups/tree/main/cybercoliseum_2_2023) |
