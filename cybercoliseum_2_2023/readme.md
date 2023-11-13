@@ -7,4 +7,6 @@
 > 
 > | Challenge-Name | Difficulty | Category | Writeup |
 > | :------------: | :--------: | :------: | :-----: |
-> | Honeypot | easy | Web | Coming soon |
+> | Honeypot | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/cybercoliseum_2_2023/Honeypot) |
+> | Zero Order | easy | Web | Coming soon |
+> | Terror | easy | OSINT | No Writeup |
