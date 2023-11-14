@@ -7,8 +7,8 @@
 >
 > | Challenge-Name | Difficulty | Category | Writeup |
 > | :------------: | :--------: | :------: | :-----: |
-> | Kulkan | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/ekoparty_ctf_2023/Kulkan) |
-> | Lobby | easy | Github | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/ekoparty_ctf_2023/Lobby) |
+> | Kulkan | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/ekoparty_ctf_2023/Kulkan) |
+> | Lobby | easy | Github | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/ekoparty_ctf_2023/Lobby) |
 > | Welcome | easy | MISC | No Writeup |
 > | Share | easy | Web | No Writeup |
 > | Iter | easy | MISC | No Writeup |

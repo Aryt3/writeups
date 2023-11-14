@@ -7,6 +7,6 @@
 > 
 > | Challenge-Name | Difficulty | Category | Writeup |
 > | :------------: | :--------: | :------: | :-----: |
-> | Honeypot | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/cybercoliseum_2_2023/Honeypot) |
-> | Zero Order | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/cybercoliseum_2_2023/Zero_Order) |
+> | Honeypot | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/cybercoliseum_2_2023/Honeypot) |
+> | Zero Order | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/cybercoliseum_2_2023/Zero_Order) |
 > | Terror | easy | OSINT | No Writeup |
