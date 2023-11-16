@@ -7,4 +7,6 @@
 > 
 > | Challenge-Name | Difficulty | Category | Writeup |
 > | :------------: | :--------: | :------: | :-----: |
-> | ? | ? | ? | ? |
+> | Mountain Dog | easy | FUN | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/acsc_finals_2023/Mountain_Dog) |
+> | Mixstake | medium | FUN | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/acsc_finals_2023/Mixstake) |
+> | Powerful_Connections | hard | FUN | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/acsc_finals_2023/Powerful_Connections) |
