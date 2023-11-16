@@ -9,3 +9,4 @@
 > | :-------: | :--------: | :------: | :-----: |
 > | jscalc | easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/hackthebox/2023/jscalc) |
 > | BabyEncryption | easy | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/hackthebox/2023/BabyEncryption) |
+> | The Last Dance | easy | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/hackthebox/2023/The_Last_Dance) |
