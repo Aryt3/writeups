@@ -16,4 +16,4 @@
 > | Lake-CTF | 2023 | Team |  | No Writeups |
 > | Cybercoliseum II | 2023 | Team | 103/1169 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/cybercoliseum_2_2023) |
 > | Pointer-Overflow-CTF | 2023 | Solo |  | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/pointer_overflow_ctf_2023) |
-> | Pointer-Overflow-CTF | 2023 | Solo | ? | Coming soon! |
+> | 1337UP-LIVE-CTF | 2023 | Solo | ? | Coming soon! |
