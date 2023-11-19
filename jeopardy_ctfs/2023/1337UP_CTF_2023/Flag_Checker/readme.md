@@ -61,7 +61,7 @@ fn main() {
 Taking a look at this I instantly knew that this basically checks if I input the correct flag. <br/>
 My first thoughts were that the only thing I can start off is the flag format `INTIGRITI{...}`. <br/>
 
-Knowing this I could basically map the first few letters and looking at the code it would basically convert the letters to the `ASCII` numbers. <br/>
+Knowing this I could basically map the first few letters to the flag array and looking at the code it would basically convert the letters to the `ASCII` numbers. <br/>
 Having this information I converted the equations to python code and wrote a little script to solve the equations and receive a flag. <br/>
 ```py
 import re
@@ -142,8 +142,8 @@ def find_flag():
 result = find_flag()
 ```
 
-Converting the equatiosn was easy I only needed to delete every occurance of `.as_bytes()` and ` as i32`. <br/>
-The script basically works by checking if there is only 1 unknown value in an equation and than proceed to sovle this equation to get the unknown value. <br/>
+Converting the equation was easy I only needed to delete every occurance of `.as_bytes()` and ` as i32`. <br/>
+The script basically works by checking if there is only 1 unknown value in an equation and than proceed to solve this equation to get the unknown value. <br/>
 Executing the script: <br/>
 ```sh
 kali@kali python3 .\solving.py
