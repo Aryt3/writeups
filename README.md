@@ -17,3 +17,4 @@
 > | Cybercoliseum II | 2023 | Team | 103/1169 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/cybercoliseum_2_2023) |
 > | Pointer-Overflow-CTF | 2023 | Solo |  | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/pointer_overflow_ctf_2023) |
 > | 1337UP-LIVE-CTF | 2023 | Team | 99/691 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/1337UP_CTF_2023) |
+> | MetaRed-5th-Stage | 2023 | Solo | 57/168 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/Metared_5th_Stage) |
