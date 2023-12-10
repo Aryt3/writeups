@@ -20,3 +20,4 @@
 > | MetaRed-5th-Stage | 2023 | Solo | 57/168 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/Metared_5th_Stage) |
 > | Glacier-CTF | 2023 | Team | 256/831 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/glacier_ctf_2023) |
 > | TUCTF | 2023 | Team | 56/764 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/tuctf_2023) |
+> | Hackappatoi | 2023 | Team | 50/443 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/hackappatoi_ctf_2023) |
