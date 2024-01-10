@@ -22,3 +22,5 @@
 > | TUCTF | 2023 | Team | 56/764 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/tuctf_2023) |
 > | Hackappatoi | 2023 | Team | 50/443 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/hackappatoi_ctf_2023) |
 > | NiteCTF | 2023 | Team | 50/352+? | No Writeups |
+> | ASIS CTF Finals | 2023 | Team | 237/268 | No Writeups |
+> | IrisCTF | 2024 | Team | 246/1728 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/iris_ctf_2024) |
