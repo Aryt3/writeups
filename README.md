@@ -25,3 +25,4 @@
 > | ASIS CTF Finals | 2023 | Team | 237/268 | No Writeups |
 > | IrisCTF | 2024 | Team | 246/1728 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/iris_ctf_2024) |
 > | New Year CTF | 2024 | Team | 35/236 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/new_year_ctf_2024) |
+> | KnightCTF | 2024 | Team | 25/733 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/knight_ctf_2024) |
