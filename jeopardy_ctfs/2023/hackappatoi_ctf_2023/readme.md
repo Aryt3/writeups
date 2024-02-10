@@ -11,5 +11,5 @@
 > | President | Easy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/hackappatoi_ctf_2023/President) |
 > | The Four Horsemen | Easy | Reversing | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/hackappatoi_ctf_2023/The_Four_Horsemen) |
 > | The First Horseman | Easy | Reversing | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/hackappatoi_ctf_2023/The_First_Horseman) |
-> | The Second Horseman | Easy | Reversing | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/hackappatoi_ctf_2023/The_Second_Horseman) |
+> | The Second Horseman | Easy | Reversing | No Writeup |
 > | Why Not?(Naples) | Easy | OSINT | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2023/hackappatoi_ctf_2023/Why_Not_Naples) |
