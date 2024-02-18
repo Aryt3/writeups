@@ -28,3 +28,4 @@
 > | UofTCTF | 2024 | Solo | 423/1225 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/UofTCTF_2024) |
 > | KnightCTF | 2024 | Team | 25/733 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/knight_ctf_2024) |
 > | 0xL4ugh-CTF | 2024 | Team | 116/1435 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/0xl4ugh_ctf) |
+> | La CTF | 2024 | Solo | 256/1074 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF) |
