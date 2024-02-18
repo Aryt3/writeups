@@ -7,14 +7,14 @@
 > 
 > | Challenge-Name | Difficulty | Category | Writeup |
 > | :------------: | :--------: | :------: | :-----: |
-> | terms-and-conditions | easy? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/terms_and_conditions) |
-> | shattered-memories | easy? | Rev | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/shattered_memories) |
+> | terms-and-conditions | easy? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/terms_and_conditions) |
+> | shattered-memories | easy? | Rev | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/shattered_memories) |
 > | flaglang | easy? | Web | No Writeup |
-> | infinite loop | easy? | MISC | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/infinite_loop) |
-> | very-hot | easy? | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/very_hot) |
-> | valentines-day | easy? | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/valentines_day) |
-> | selamat pagi | medium? | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/selamat_pagi) |
+> | infinite loop | easy? | MISC | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/infinite_loop) |
+> | very-hot | easy? | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/very_hot) |
+> | valentines-day | easy? | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/valentines_day) |
+> | selamat pagi | medium? | Crypto | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/selamat_pagi) |
 > | mixed signals | X | MISC | No Writeup |
-> | la housing portal | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/la_housing_portal) |
-> | new-housing-portal | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/new_housing_portal) |
-> | penguin-login | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/LaCTF/penguin_login) |
+> | la housing portal | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/la_housing_portal) |
+> | new-housing-portal | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/new_housing_portal) |
+> | penguin-login | medium? | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF/penguin_login) |
