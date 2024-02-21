@@ -14,3 +14,15 @@
 > | information | Forensics | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/information) |
 > | Nice netcat... | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/nice_netcat) |
 > | Transformation | Reverse Engineering | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/transformation) |
+> | Stonks | Binary Exploitation | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/stonks) |
+> | keygenme-py | Reverse Engineering | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/keygenme_py) |
+> | Matryoshka doll | Forensics | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/matryoshka_doll) |
+> | Insp3ct0r | Web Exploitation | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/insp3ct0r) |
+> | Lets Warm Up | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/lets_warm_up) |
+> | Warmed Up | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/warmed_up) |
+> | 2Warm | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/2warm) |
+> | what's a net cat? | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/whats_a_net_cat) |
+> | GET aHEAD | Web Exploitation | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/get_ahead) |
+> | Tab, Tab, Attack | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/tab_tab_attack) |
+> | Static ain't always noise | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/static_aint_always_noise) |
+> | Mind your Ps and Qs | Cryptography | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/mind_your_ps_and_qs) |
