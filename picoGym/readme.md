@@ -26,3 +26,6 @@
 > | Tab, Tab, Attack | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/tab_tab_attack) |
 > | Static ain't always noise | General Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/static_aint_always_noise) |
 > | Mind your Ps and Qs | Cryptography | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/mind_your_ps_and_qs) |
+> | Glory of the Garden | Forensics | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/glory_of_the_garden) |
+> | Magikarp Ground Mission | Generall Skills | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/magikarp_ground_mission) |
+> | Cookies | Web Exploitation | [Writeup](https://github.com/Aryt3/writeups/tree/main/picoGym/cookies) |
