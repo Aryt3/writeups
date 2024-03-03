@@ -15,7 +15,8 @@ Can you help me get my memories back?
 
 ## Writeup
 
-Taking a look at the encrypted image I couldn't display it because the encrypted seems to have corrupted it. <br/>
+Starting off I analyzed the files and realised `enc.txt` had to be an image and `source.txt` was a simple `python-script`. <br/>
+Taking a look at the encrypted image I couldn't display it because the encrpytion process also corrupted the image itself. <br/>
 ```py
 from PIL import Image
 from itertools import cycle
@@ -47,7 +48,7 @@ $ python3 key.py
 [137, 80, 78, 71, 13, 10, 26, 10]
 ```
 
-Using the key to decrypt the ecnrypted image I made another small script to reverse the encryption. <br/>
+Using the key to decrypt the encrypted image I made another small script to reverse the encryption. <br/>
 ```py
 from itertools import cycle
 
@@ -64,6 +65,6 @@ open('decrypted.png', 'wb').write(dec)
 ```
 
 Executing the script with the key I was able to reverse the encrypted image. <br/>
-[IMAGE]()
+![image](https://github.com/Aryt3/writeups/assets/110562298/ab61da5f-9ff5-4cd5-919c-b58699293c29)
 
 Looking at the decrypted image I obtained the flag which concludes this writeup.
