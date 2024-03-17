@@ -30,3 +30,6 @@
 > | 0xL4ugh-CTF | 2024 | Team | 116/1435 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/0xl4ugh_ctf) |
 > | La CTF | 2024 | Solo | 256/1074 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/La_CTF) |
 > | VishwaCTF | 2024 | Team | 83/1039 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/VishwaCTF_2024) | 
+> | osu!gaming CTF | 2024 | Solo | 555/984 | No Writeups |
+> | Pearl CTF | 2024 | Team | 111/600+? | No Writeups |
+> | Cyber Apocalypse 2024: Hacker Royale | 2024 | Team | 550/5693 | No Writeups |
