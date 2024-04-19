@@ -34,3 +34,4 @@
 > | Pearl CTF | 2024 | Team | 111/600+? | No Writeups |
 > | Cyber Apocalypse 2024: Hacker Royale | 2024 | Team | 550/5693 | No Writeups |
 > | ECSC 2024 Round 1 | 2024 | Solo | 121/1880 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/ecsc_round_1_2024) |
+> | Space Heroes 2024 | 2024 | Team | 151/614 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/space_heroes_ctf_2024) |
