@@ -25,7 +25,7 @@ jumbled = ''.join(jumbled)
 
 Knowing the seed used in the randomization, we can predict the exact output of our input. <br/>
 If we can predict it we can insert a malicious payload to execute `SSTI`. <br/>
-To test my guess I used a simple `template injeciton` using `{{config}}`. <br/>
+To test my guess I used a simple `template injection` using `{{config}}`. <br/>
 The reversed version of it would be `gcinfo}{{}` which I reversed manually. <br/>
 
 The result of the `SSTI` can be seen below. <br/>

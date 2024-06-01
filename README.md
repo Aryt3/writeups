@@ -38,3 +38,4 @@
 > | ECSC 2024 Round 2 | 2024 | Solo | 161/2735 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/ecsc_round_2_2024) |
 > | ECSC 2024 Round 3 | 2024 | Solo | 189/3268 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/ecsc_round_3_2024) |
 > | AngstromCTF 2024 | 2024 | Solo | 202/923 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/angstrom_ctf_2024) |
+> | GPN CTF 2024 | 2024 | Solo | 72/688 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/GPN_CTF_2024) |

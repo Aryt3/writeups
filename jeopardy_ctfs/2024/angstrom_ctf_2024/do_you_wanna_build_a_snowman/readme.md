@@ -13,7 +13,7 @@ Anna: Do you wanna build a snowman? Elsa: Sure if you can open my snowman pictur
 ## Writeup
 
 Starting off, I tried to display the picture but it seemed to be corrupted somehow. <br/>
-Knowing that I looked at the `hex-bytes` of the picture using `xxd`. <br/>
+Knowing that, I looked at the `hex-bytes` of the picture using `xxd`. <br/>
 ```sh
 $ xxd snowman.jpg | head
 00000000: fdd8 ffe0 0010 4a46 4946 0001 0100 0001  ......JFIF......
@@ -30,7 +30,7 @@ $ xxd snowman.jpg | head
 
 Looking at the file header I saw an error. <br/>
 The normal `jpeg` file header is `ffd8 ffe0` but in our case it seemed to be slightly broken. <br/>
-Knowing this I madea `hex-dump` of the whole image file and fixed the file header. <br/>
+Knowing this, I made a `hex-dump` of the whole image file and fixed the file header. <br/>
 ```sh
 # Hex-dump
 $ xxd snowman.jpg > snowman.hex
@@ -44,5 +44,5 @@ $ xxd -r snowman.hex snowman_fixed.jpg
 
 This revealed the flag which concludes this writeup. <br/>
 <div style="text-align:center;">
-    <img src="https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/angstrom_ctf_2024/do_you_wanna_build_a_snowman/snowman_fixed.jpg" alt="Image" />
+    <img src="https://github.com/Aryt3/writeups/blob/main/jeopardy_ctfs/2024/angstrom_ctf_2024/do_you_wanna_build_a_snowman/snowman_fixed.jpg" alt="Image" />
 </div>

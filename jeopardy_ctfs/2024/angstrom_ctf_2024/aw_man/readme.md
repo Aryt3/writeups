@@ -7,7 +7,7 @@ Man? Is that you?
 
 ## Provided Files
 <div style="text-align:center;">
-    <img src="https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/angstrom_ctf_2024/aw_man/mann.jpg" alt="Image" />
+    <img src="https://github.com/Aryt3/writeups/blob/main/jeopardy_ctfs/2024/angstrom_ctf_2024/aw_man/mann.jpg" alt="Image" />
 </div>
 
 ## Writeup
