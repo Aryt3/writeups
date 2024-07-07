@@ -42,3 +42,5 @@
 > | N0PSctf 2024 | 2024 | Team | 111/631 | No Writeups |
 > | Akasec CTF 2024 | 2024 | Team | 64/696 | No Writeups |
 > | justCTF 2024 teaser | 2024 | Team | 3/436 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/justCTF_teaser_2024) |
+> | UIUCTF 2024 | 2024 | Team | 4/959 | No Writeups |
+> | DownUnderCTF 2024 | 2024 | Team | 11/1515 | [Writeups](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/downUnderCTF_2024) |

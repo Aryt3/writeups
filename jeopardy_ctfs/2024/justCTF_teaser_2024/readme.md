@@ -7,6 +7,6 @@
 > 
 > | Challenge-Name | Category | Writeup |
 > | :------------: | :------: | :-----: |
-> | Piggy | Web | No Writeup |
+> | Piggy | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/justCTF_teaser_2024/piggy) |
 > | justPocketTheBase | Web | [Writeup](https://github.com/Aryt3/writeups/tree/main/jeopardy_ctfs/2024/justCTF_teaser_2024/justPocketTheBase) |
 > | Wild West | PPC | No Writeup |
